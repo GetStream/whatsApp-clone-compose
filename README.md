@@ -18,7 +18,7 @@ The purpose of this repository is to demonstrate below:
 
 ## ✍️ Technical Content
 
-If you're interested in the overall architecture, each layer, and Compose themes that are used in this project, check out check out **[Build a real-time WhatsApp Clone With Jetpack Compose](https://getstream.io/blog/build-whatsapp-clone-compose/)**.
+Preparing
 
 ## 📲 Download APK
 Go to the [Releases](https://github.com/GetStream/whatsapp-clone-compose/releases) to download the latest APK.
