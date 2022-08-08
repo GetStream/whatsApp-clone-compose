@@ -1,0 +1,36 @@
+buildscript {
+  repositories {
+    google()
+    mavenCentral()
+    maven { url "https://plugins.gradle.org/m2/" }
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+  }
+  dependencies {
+    classpath Dependencies.androidGradlePlugin
+    classpath Dependencies.kotlinGradlePlugin
+    classpath Dependencies.kotlinSerializationPlugin
+    classpath Dependencies.ksp
+    classpath Dependencies.spotlessGradlePlugin
+    classpath Dependencies.hiltPlugin
+  }
+}
+
+subprojects {
+  apply from: "$rootDir/spotless/spotless.gradle"
+
+  tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach { compile ->
+    kotlinOptions {
+      // set compiler options
+      freeCompilerArgs += "-Xskip-prerelease-check"
+      freeCompilerArgs += "-Xopt-in=kotlin.RequiresOptIn"
+      freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+      freeCompilerArgs += "-Xopt-in=com.google.accompanist.pager.ExperimentalPagerApi"
+      freeCompilerArgs += "-Xopt-in=androidx.compose.material3.ExperimentalMaterial3Api"
+      freeCompilerArgs += "-Xopt-in=androidx.lifecycle.compose.ExperimentalLifecycleComposeApi"
+    }
+  }
+}
+
+task clean(type: Delete) {
+  delete rootProject.buildDir
+}

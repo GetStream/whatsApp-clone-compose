@@ -1,0 +1,5 @@
+<resources>
+  <string name="status_mine">My Status</string>
+  <string name="status_desc">Tap to add status update</string>
+  <string name="recent_updates">Recent updates</string>
+</resources>

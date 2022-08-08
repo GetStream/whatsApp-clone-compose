@@ -1,0 +1,7 @@
+<resources>
+  <string name="app_name">WhatsAppClone</string>
+
+  <string name="tab_chat">Chat</string>
+  <string name="tab_status">Status</string>
+  <string name="tab_call">Call</string>
+</resources>
