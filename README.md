@@ -1,4 +1,4 @@
-# WhatsApp Clone Compose Draft
+![Whats-App-Clone-Project-1200x630px](https://user-images.githubusercontent.com/24237865/183430539-7bfa14da-0015-4e57-bc71-5c8ff07eb47b.png)
 
 <p align="center">
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
