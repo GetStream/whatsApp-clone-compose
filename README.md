@@ -38,8 +38,8 @@ If you’re interested in adding powerful In-App Messaging to your app, check ou
 <img src="previews/preview1.png" alt="drawing" width="270" />
 <img src="previews/preview2.png" alt="drawing" width="270" /></br>
 <img src="previews/preview5.png" alt="drawing" width="269" />
-<img src="previews/preview3.png" alt="drawing" width="270" />
 <img src="previews/preview4.png" alt="drawing" width="270" />
+<img src="previews/preview3.png" alt="drawing" width="270" />
 </p>
 
 ## 🛠 Tech Sacks & Open Source Libraries
