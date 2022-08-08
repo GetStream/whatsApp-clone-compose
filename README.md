@@ -18,7 +18,7 @@ The purpose of this repository is to demonstrate below:
 
 ## ✍️ Technical Content
 
-If you're interested in the overall architecture, each layer, and Compose themes that are used in this project, check out **[Build a real-time WhatsApp Clone With Jetpack Compose](https://getstream.io/blog/build-whatsapp-clone/)**.
+If you're interested in the overall architecture, each layer, and Compose themes that are used in this project, check out **[Build a Real-Time WhatsApp Clone With Jetpack Compose](https://getstream.io/blog/build-whatsapp-clone/)**.
 
 ## 📲 Download APK
 Go to the [Releases](https://github.com/GetStream/whatsapp-clone-compose/releases) to download the latest APK.
@@ -90,7 +90,7 @@ The UI Layer consists of UI elements like buttons, menus, tabs that could intera
 
 The data Layer consists of repositories, which include business logic, such as querying data from the local database and requesting remote data from the network. It is implemented as an offline-first source of business logic and follows the [single source of truth](https://en.wikipedia.org/wiki/Single_source_of_truth) principle.<br>
 
-For more information about the overall architecture, check out **[Build a real-time WhatsApp Clone With Jetpack Compose](https://getstream.io/blog/build-whatsapp-clone-compose/)**.
+For more information about the overall architecture, check out **[Build a Real-Time WhatsApp Clone With Jetpack Compose](https://getstream.io/blog/build-whatsapp-clone/)**.
 
 ## Modularization
 
