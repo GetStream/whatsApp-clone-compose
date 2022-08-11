@@ -47,6 +47,7 @@ dependencies {
   implementation(project(":core-designsystem"))
   implementation(project(":core-navigation"))
   implementation(project(":core-network"))
+  implementation(project(":core-data"))
 
   // Stream chat Compose
   api(Dependencies.streamCompose)

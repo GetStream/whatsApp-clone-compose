@@ -77,6 +77,7 @@ object Dependencies {
   const val accompanistIndicator =
     "com.google.accompanist:accompanist-pager-indicators:${Versions.ACCOMPANIST}"
   const val streamCompose = "io.getstream:stream-chat-android-compose:${Versions.STREAM_CHAT}"
+  const val streamClient = "io.getstream:stream-chat-android-client:${Versions.STREAM_CHAT}"
 
   const val appStartUp = "androidx.startup:startup-runtime:${Versions.APP_STARTUP}"
   const val hiltAndroid = "com.google.dagger:hilt-android:${Versions.HILT}"

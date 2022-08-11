@@ -20,9 +20,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.getstream.chat.android.client.ChatClient
-import io.getstream.chat.android.client.models.Channel
 import io.getstream.chat.android.client.utils.onError
 import io.getstream.chat.android.client.utils.onSuccess
+import io.getstream.whatsappclone.data.model.WhatsAppMessageUiState
 import io.getstream.whatsappclone.network.Dispatcher
 import io.getstream.whatsappclone.network.WhatsAppDispatchers
 import kotlinx.coroutines.CoroutineDispatcher
@@ -60,10 +60,4 @@ class WhatsAppMessagesViewModel @Inject constructor(
 
 sealed interface WhatsAppMessageEvent {
   class FetchChannel(val channelId: String) : WhatsAppMessageEvent
-}
-
-sealed interface WhatsAppMessageUiState {
-  data class Success(val channel: Channel) : WhatsAppMessageUiState
-  object Loading : WhatsAppMessageUiState
-  object Error : WhatsAppMessageUiState
 }

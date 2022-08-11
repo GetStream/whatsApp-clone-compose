@@ -21,6 +21,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import io.getstream.whatsappclone.data.model.WhatsAppUserUiState
 import io.getstream.whatsappclone.designsystem.component.WhatsAppError
 import io.getstream.whatsappclone.designsystem.component.WhatsAppLoadingColumn
 import io.getstream.whatsappclone.navigation.AppComposeNavigator
@@ -42,15 +43,15 @@ fun WhatsAppCalls(
 @Composable
 private fun WhatsAppCallsScreen(
   composeNavigator: AppComposeNavigator,
-  whatsAppUsersUiState: WhatsAppUiState
+  whatsAppUsersUiState: WhatsAppUserUiState
 ) {
   when (whatsAppUsersUiState) {
-    WhatsAppUiState.Loading -> WhatsAppLoadingColumn()
-    WhatsAppUiState.Error -> WhatsAppError()
-    is WhatsAppUiState.Success -> {
+    WhatsAppUserUiState.Loading -> WhatsAppLoadingColumn()
+    WhatsAppUserUiState.Error -> WhatsAppError()
+    is WhatsAppUserUiState.Success -> {
       LazyColumn {
         items(
-          items = whatsAppUsersUiState.whatsAppUsers,
+          items = whatsAppUsersUiState.data.whatsappUserList,
           key = { it.name }
         ) {
           WhatsAppCallHistory(whatsAppUser = it) {

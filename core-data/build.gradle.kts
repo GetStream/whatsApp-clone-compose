@@ -3,6 +3,7 @@ plugins {
   id("org.jetbrains.kotlin.android")
   id("org.jetbrains.kotlin.plugin.serialization")
   id("kotlin-kapt")
+  id("com.google.devtools.ksp")
   id("dagger.hilt.android.plugin")
 }
 
@@ -24,13 +25,24 @@ android {
   }
 }
 
+kotlin {
+  sourceSets.configureEach {
+    kotlin.srcDir("$buildDir/generated/ksp/$name/kotlin/")
+  }
+}
+
 dependencies {
   api(project(":core-model"))
   api(project(":core-network"))
   api(project(":core-database"))
 
+  api(Dependencies.streamClient)
+
   api(Dependencies.coroutines)
 
   api(Dependencies.hiltAndroid)
   kapt(Dependencies.hiltCompiler)
+
+  api("com.github.skydoves:sealedx-core:1.0.1-SNAPSHOT")
+  ksp("com.github.skydoves:sealedx-processor:1.0.1-SNAPSHOT")
 }

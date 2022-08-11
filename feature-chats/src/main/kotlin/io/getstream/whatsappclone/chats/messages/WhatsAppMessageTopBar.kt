@@ -39,6 +39,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.skydoves.landscapist.glide.GlideImage
 import io.getstream.chat.android.client.ChatClient
+import io.getstream.whatsappclone.data.model.WhatsAppMessageUiState
 import io.getstream.whatsappclone.designsystem.component.WhatsAppLoadingIndicator
 import io.getstream.whatsappclone.designsystem.icon.WhatsAppIcons
 import io.getstream.whatsappclone.designsystem.theme.WhatsAppCloneComposeTheme
@@ -122,14 +123,14 @@ private fun WhatsAppMessageUserInfo(
         modifier = Modifier
           .size(32.dp)
           .clip(CircleShape),
-        imageModel = messageUiState.channel.image.takeIf { it.isNotEmpty() }
+        imageModel = messageUiState.data.image.takeIf { it.isNotEmpty() }
           ?: io.getstream.whatsappclone.designsystem.R.drawable.stream_logo,
         previewPlaceholder = io.getstream.whatsappclone.designsystem.R.drawable.placeholder
       )
 
       Text(
         modifier = Modifier.padding(start = 12.dp),
-        text = messageUiState.channel.name,
+        text = messageUiState.data.name,
         color = MaterialTheme.colorScheme.tertiary,
         style = MaterialTheme.typography.bodyLarge
       )
