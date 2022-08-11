@@ -1,12 +1,12 @@
 object Versions {
   internal const val ANDROID_GRADLE_PLUGIN = "7.2.1"
   internal const val ANDROID_GRADLE_SPOTLESS = "6.7.0"
-  internal const val KOTLIN = "1.7.0"
+  internal const val KOTLIN = "1.7.10"
   internal const val KOTLIN_SERIALIZATION_JSON = "1.3.2"
-  internal const val KSP = "1.7.0-1.0.6"
+  internal const val KSP = "1.7.10-1.0.6"
 
-  internal const val COMPOSE = "1.2.0"
-  const val COMPOSE_COMPILER = "1.2.0"
+  internal const val COMPOSE = "1.2.1"
+  const val COMPOSE_COMPILER = "1.3.0"
   internal const val COMPOSE_MATERIAL3 = "1.0.0-alpha13"
   internal const val COMPOSE_ACTIVITY = "1.4.0"
   internal const val COMPOSE_CONSTRAINT = "1.0.0"
