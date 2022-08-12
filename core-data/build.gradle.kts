@@ -43,6 +43,6 @@ dependencies {
   api(Dependencies.hiltAndroid)
   kapt(Dependencies.hiltCompiler)
 
-  api("com.github.skydoves:sealedx-core:1.0.1-SNAPSHOT")
-  ksp("com.github.skydoves:sealedx-processor:1.0.1-SNAPSHOT")
+  implementation(Dependencies.sealedXCore)
+  ksp(Dependencies.sealedXProcessor)
 }
