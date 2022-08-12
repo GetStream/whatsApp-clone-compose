@@ -20,6 +20,7 @@ object Versions {
   internal const val APP_STARTUP = "1.1.1"
   internal const val LIFECYCLE = "2.6.0-alpha01"
   internal const val ROOM = "2.4.2"
+  internal const val SEALEDX = "1.0.0"
 
   internal const val LANDSCAPIST_GLIDE = "1.6.0"
   internal const val ACCOMPANIST = "0.25.0"
@@ -77,6 +78,7 @@ object Dependencies {
   const val accompanistIndicator =
     "com.google.accompanist:accompanist-pager-indicators:${Versions.ACCOMPANIST}"
   const val streamCompose = "io.getstream:stream-chat-android-compose:${Versions.STREAM_CHAT}"
+  const val streamClient = "io.getstream:stream-chat-android-client:${Versions.STREAM_CHAT}"
 
   const val appStartUp = "androidx.startup:startup-runtime:${Versions.APP_STARTUP}"
   const val hiltAndroid = "com.google.dagger:hilt-android:${Versions.HILT}"
@@ -85,6 +87,8 @@ object Dependencies {
   const val roomRuntime = "androidx.room:room-runtime:${Versions.ROOM}"
   const val roomKtx = "androidx.room:room-ktx:${Versions.ROOM}"
   const val roomCompiler = "androidx.room:room-compiler:${Versions.ROOM}"
+  const val sealedXCore = "com.github.skydoves:sealedx-core:${Versions.SEALEDX}"
+  const val sealedXProcessor = "com.github.skydoves:sealedx-processor:${Versions.SEALEDX}"
 
   const val okHttp = "com.squareup.okhttp3:okhttp:${Versions.OKHTTP}"
   const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.RETROFIT}"

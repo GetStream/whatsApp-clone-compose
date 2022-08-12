@@ -19,8 +19,9 @@ package io.getstream.whatsappclone.calls
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import io.getstream.whatsappclone.data.model.WhatsAppUserUiState
 import io.getstream.whatsappclone.data.repository.CallHistoryRepository
-import io.getstream.whatsappclone.model.WhatsAppUser
+import io.getstream.whatsappclone.model.WhatsAppUserExtensive
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.flatMapLatest
@@ -33,24 +34,22 @@ class WhatsAppCallsViewModel @Inject constructor(
   callHistoryRepository: CallHistoryRepository
 ) : ViewModel() {
 
-  val whatsAppUserState: StateFlow<WhatsAppUiState> =
+  val whatsAppUserState: StateFlow<WhatsAppUserUiState> =
     callHistoryRepository.getCallHistoryUsersStream()
       .flatMapLatest {
         if (it.isSuccess) {
-          flowOf(WhatsAppUiState.Success(it.getOrThrow()))
+          flowOf(
+            WhatsAppUserUiState.Success(
+              WhatsAppUserExtensive(it.getOrThrow())
+            )
+          )
         } else {
-          flowOf(WhatsAppUiState.Error)
+          flowOf(WhatsAppUserUiState.Error)
         }
       }
       .stateIn(
         scope = viewModelScope,
         started = SharingStarted.WhileSubscribed(5_000),
-        initialValue = WhatsAppUiState.Loading
+        initialValue = WhatsAppUserUiState.Loading
       )
-}
-
-sealed interface WhatsAppUiState {
-  data class Success(val whatsAppUsers: List<WhatsAppUser>) : WhatsAppUiState
-  object Error : WhatsAppUiState
-  object Loading : WhatsAppUiState
 }
