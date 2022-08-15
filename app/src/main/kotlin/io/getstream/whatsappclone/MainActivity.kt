@@ -28,7 +28,7 @@ import javax.inject.Inject
 class MainActivity : ComponentActivity() {
 
   @Inject
-  lateinit var appComposeNavigator: AppComposeNavigator
+  internal lateinit var appComposeNavigator: AppComposeNavigator
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
