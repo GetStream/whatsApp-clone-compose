@@ -28,10 +28,6 @@ android {
     kotlinCompilerExtensionVersion = Versions.COMPOSE_COMPILER
   }
 
-  kotlinOptions {
-    jvmTarget = "1.8"
-  }
-
   packagingOptions {
     resources.excludes.add("META-INF/LICENSE.txt")
     resources.excludes.add("META-INF/NOTICE.txt")
