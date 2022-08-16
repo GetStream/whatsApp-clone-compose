@@ -21,11 +21,11 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import io.getstream.whatsappclone.data.model.WhatsAppUserUiState
 import io.getstream.whatsappclone.designsystem.component.WhatsAppError
 import io.getstream.whatsappclone.designsystem.component.WhatsAppLoadingColumn
 import io.getstream.whatsappclone.navigation.AppComposeNavigator
 import io.getstream.whatsappclone.navigation.WhatsAppScreens
+import io.getstream.whatsappclone.uistate.WhatsAppUserUiState
 
 @Composable
 fun WhatsAppCalls(

@@ -19,9 +19,9 @@ package io.getstream.whatsappclone.calls
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.getstream.whatsappclone.data.model.WhatsAppUserUiState
 import io.getstream.whatsappclone.data.repository.CallHistoryRepository
-import io.getstream.whatsappclone.model.WhatsAppUserExtensive
+import io.getstream.whatsappclone.uistate.WhatsAppUserExtensive
+import io.getstream.whatsappclone.uistate.WhatsAppUserUiState
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.flatMapLatest

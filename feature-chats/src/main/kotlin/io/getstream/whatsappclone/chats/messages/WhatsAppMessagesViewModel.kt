@@ -22,9 +22,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import io.getstream.chat.android.client.ChatClient
 import io.getstream.chat.android.client.utils.onError
 import io.getstream.chat.android.client.utils.onSuccess
-import io.getstream.whatsappclone.data.model.WhatsAppMessageUiState
 import io.getstream.whatsappclone.network.Dispatcher
 import io.getstream.whatsappclone.network.WhatsAppDispatchers
+import io.getstream.whatsappclone.uistate.WhatsAppMessageUiState
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

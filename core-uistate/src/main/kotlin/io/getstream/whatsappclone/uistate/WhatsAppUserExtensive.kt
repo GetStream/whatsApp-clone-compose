@@ -14,8 +14,12 @@
  * limitations under the License.
  */
 
-package io.getstream.whatsappclone.model
+package io.getstream.whatsappclone.uistate
 
+import androidx.compose.runtime.Immutable
+import io.getstream.whatsappclone.model.WhatsAppUser
+
+@Immutable
 data class WhatsAppUserExtensive(
   val whatsappUserList: List<WhatsAppUser>
 )
