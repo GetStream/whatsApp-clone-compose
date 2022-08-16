@@ -1,9 +1,7 @@
 plugins {
   id("com.android.library")
   id("org.jetbrains.kotlin.android")
-  id("org.jetbrains.kotlin.plugin.serialization")
-  id("kotlin-kapt")
-  id("dagger.hilt.android.plugin")
+  id("com.google.devtools.ksp")
 }
 
 android {
@@ -26,22 +24,19 @@ android {
   composeOptions {
     kotlinCompilerExtensionVersion = Versions.COMPOSE_COMPILER
   }
+}
 
-  lint {
-    abortOnError = false
+kotlin {
+  sourceSets.configureEach {
+    kotlin.srcDir("$buildDir/generated/ksp/$name/kotlin/")
   }
 }
 
 dependencies {
-  // core modules
-  implementation(project(":core-designsystem"))
-  implementation(project(":core-navigation"))
-  implementation(project(":core-uistate"))
-  implementation(project(":core-data"))
+  implementation(project(":core-model"))
 
-  implementation(Dependencies.composeLifecycle)
-  implementation(Dependencies.timber)
+  implementation(Dependencies.composeRuntime)
 
-  api(Dependencies.hiltAndroid)
-  kapt(Dependencies.hiltCompiler)
+  implementation(Dependencies.sealedXCore)
+  ksp(Dependencies.sealedXProcessor)
 }

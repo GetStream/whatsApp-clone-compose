@@ -20,5 +20,6 @@ android {
 }
 
 dependencies {
+  api(Dependencies.streamClient)
   api(Dependencies.kotlinSerializationJson)
 }

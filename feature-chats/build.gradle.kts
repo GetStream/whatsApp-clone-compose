@@ -29,13 +29,6 @@ android {
   lint {
     abortOnError = false
   }
-
-  packagingOptions {
-    resources.excludes.add("META-INF/LICENSE.txt")
-    resources.excludes.add("META-INF/NOTICE.txt")
-    resources.excludes.add("LICENSE.txt")
-    resources.excludes.add("/META-INF/{AL2.0,LGPL2.1}")
-  }
 }
 
 dependencies {
@@ -43,6 +36,7 @@ dependencies {
   implementation(project(":core-designsystem"))
   implementation(project(":core-navigation"))
   implementation(project(":core-network"))
+  implementation(project(":core-uistate"))
   implementation(project(":core-data"))
 
   // Stream chat Compose

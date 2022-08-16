@@ -39,12 +39,12 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.skydoves.landscapist.glide.GlideImage
 import io.getstream.chat.android.client.ChatClient
-import io.getstream.whatsappclone.data.model.WhatsAppMessageUiState
 import io.getstream.whatsappclone.designsystem.component.WhatsAppLoadingIndicator
 import io.getstream.whatsappclone.designsystem.icon.WhatsAppIcons
 import io.getstream.whatsappclone.designsystem.theme.WhatsAppCloneComposeTheme
 import io.getstream.whatsappclone.navigation.AppComposeNavigator
 import io.getstream.whatsappclone.navigation.WhatsAppCloneComposeNavigator
+import io.getstream.whatsappclone.uistate.WhatsAppMessageUiState
 import kotlinx.coroutines.Dispatchers
 
 @Composable
