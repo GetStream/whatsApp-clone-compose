@@ -20,13 +20,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.getstream.whatsappclone.data.repository.CallHistoryRepository
+import io.getstream.whatsappclone.uistate.WhatsAppUserExtensive
 import io.getstream.whatsappclone.uistate.WhatsAppUserUiState
+import javax.inject.Inject
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.stateIn
-import javax.inject.Inject
 
 @HiltViewModel
 class WhatsAppCallsViewModel @Inject constructor(
@@ -39,7 +40,7 @@ class WhatsAppCallsViewModel @Inject constructor(
         if (it.isSuccess) {
           flowOf(
             WhatsAppUserUiState.Success(
-              io.getstream.whatsappclone.uistate.WhatsAppUserExtensive(it.getOrThrow())
+              WhatsAppUserExtensive(it.getOrThrow())
             )
           )
         } else {
