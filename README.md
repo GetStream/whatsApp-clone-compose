@@ -72,7 +72,7 @@ If you’re interested in adding powerful In-App Messaging to your app, check ou
 
 ## 🏛️ Architecture
 
-**WhatsApp Clone Compose** follows the [Google's offlicial architecture guidance](https://developer.android.com/topic/architecture).
+**WhatsApp Clone Compose** follows the [Google's official architecture guidance](https://developer.android.com/topic/architecture).
 
 ![architecture](figures/figure0.png)
 
