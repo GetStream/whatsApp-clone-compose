@@ -80,4 +80,6 @@ abstract class AppComposeNavigator : Navigator() {
       navigateUp()
     }
   }
+
+  fun canNavUp(navController: NavController): Boolean = navController.backQueue.isNotEmpty()
 }

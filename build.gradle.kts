@@ -18,7 +18,6 @@ subprojects {
 
   tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
     kotlinOptions.freeCompilerArgs += listOf(
-      "-Xskip-prerelease-check",
       "-Xopt-in=kotlin.RequiresOptIn",
       "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
       "-Xopt-in=com.google.accompanist.pager.ExperimentalPagerApi",

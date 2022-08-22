@@ -16,7 +16,10 @@
 
 package io.getstream.whatsappclone.navigation
 
+import android.app.Activity
+import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import io.getstream.whatsappclone.calls.WhatsAppCalls
 import io.getstream.whatsappclone.camera.WhatsAppCamera
@@ -28,6 +31,11 @@ fun WhatsAppPagerContent(
   page: Int,
   composeNavigator: AppComposeNavigator
 ) {
+  val activity = (LocalContext.current as? Activity)
+  BackHandler {
+    activity?.finish()
+  }
+
   when (page) {
     WhatsAppPage.Camera.index -> WhatsAppCamera()
     WhatsAppPage.Chats.index -> WhatsAppChannels(composeNavigator = composeNavigator)
