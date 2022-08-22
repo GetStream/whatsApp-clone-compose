@@ -22,10 +22,10 @@ object Versions {
   internal const val ROOM = "2.4.2"
   internal const val SEALEDX = "1.0.0"
 
-  internal const val LANDSCAPIST_GLIDE = "1.6.0"
+  internal const val LANDSCAPIST_GLIDE = "1.6.1"
   internal const val ACCOMPANIST = "0.25.0"
 
-  internal const val STREAM_CHAT = "5.7.0"
+  internal const val STREAM_CHAT = "5.8.0"
 
   internal const val RETROFIT = "2.9.0"
   internal const val RETROFIT_RESULT_ADAPTER = "1.0.1"
