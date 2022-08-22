@@ -51,12 +51,6 @@ android {
   }
 }
 
-kotlin {
-  sourceSets.configureEach {
-    kotlin.srcDir("$buildDir/generated/ksp/$name/kotlin/")
-  }
-}
-
 dependencies {
   // core modules
   implementation(project(":core-designsystem"))

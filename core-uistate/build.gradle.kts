@@ -26,6 +26,12 @@ android {
   }
 }
 
+kotlin {
+  sourceSets.configureEach {
+    kotlin.srcDir("$buildDir/generated/ksp/$name/kotlin/")
+  }
+}
+
 dependencies {
   implementation(project(":core-model"))
 
