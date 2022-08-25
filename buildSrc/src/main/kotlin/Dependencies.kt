@@ -2,7 +2,7 @@ object Versions {
   internal const val ANDROID_GRADLE_PLUGIN = "7.2.1"
   internal const val ANDROID_GRADLE_SPOTLESS = "6.7.0"
   internal const val KOTLIN = "1.7.10"
-  internal const val KOTLIN_SERIALIZATION_JSON = "1.3.2"
+  internal const val KOTLIN_SERIALIZATION_JSON = "1.4.0"
   internal const val KSP = "1.7.10-1.0.6"
 
   internal const val COMPOSE = "1.2.1"
@@ -25,7 +25,7 @@ object Versions {
   internal const val LANDSCAPIST_GLIDE = "1.6.1"
   internal const val ACCOMPANIST = "0.25.0"
 
-  internal const val STREAM_CHAT = "5.8.0"
+  internal const val STREAM_CHAT = "5.8.2"
 
   internal const val RETROFIT = "2.9.0"
   internal const val RETROFIT_RESULT_ADAPTER = "1.0.1"
