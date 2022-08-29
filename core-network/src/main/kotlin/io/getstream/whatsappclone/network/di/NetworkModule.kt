@@ -25,12 +25,12 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import io.getstream.whatsappclone.network.service.WhatsAppUserService
+import javax.inject.Singleton
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
 import retrofit2.create
-import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -46,7 +46,10 @@ object NetworkModule {
   @Singleton
   fun provideRetrofit(networkJson: Json): Retrofit {
     return Retrofit.Builder()
-      .baseUrl("https://gist.githubusercontent.com/skydoves/44140b10c3b1057b8ac00e2a59eaaa86/raw/0ca2cdbb34c7eaf365130c75969a29d4e33bd2fc/")
+      .baseUrl(
+        "https://gist.githubusercontent.com/skydoves/44140b10c3b1057b8ac00e2a59eaaa86/raw/" +
+          "0ca2cdbb34c7eaf365130c75969a29d4e33bd2fc/"
+      )
       .addConverterFactory(networkJson.asConverterFactory("application/json".toMediaType()))
       .addCallAdapterFactory(ResultCallAdapterFactory.create())
       .build()

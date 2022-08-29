@@ -23,11 +23,11 @@ import io.getstream.whatsappclone.model.WhatsAppUser
 import io.getstream.whatsappclone.network.Dispatcher
 import io.getstream.whatsappclone.network.WhatsAppDispatchers
 import io.getstream.whatsappclone.network.service.WhatsAppUserService
+import javax.inject.Inject
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import javax.inject.Inject
 
 class CallHistoryRepositoryImpl @Inject constructor(
   @Dispatcher(WhatsAppDispatchers.IO) private val ioDispatcher: CoroutineDispatcher,
