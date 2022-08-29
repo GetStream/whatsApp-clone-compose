@@ -17,14 +17,16 @@ plugins {
   id("getstream.android.library")
   id("getstream.android.hilt")
   id("getstream.spotless")
+  id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 dependencies {
   implementation(project(":core-model"))
 
-  api(Dependencies.okHttp)
-  api(Dependencies.retrofit)
-  api(Dependencies.retrofitResultAdapter)
-  api(Dependencies.retrofitKotlinSerialization)
-  api(Dependencies.kotlinSerializationJson)
+  api(libs.okhttp.logging)
+  api(libs.retrofit.core)
+  api(libs.retrofit.result.adapter)
+
+  api(libs.retrofit.kotlin.serialization)
+  api(libs.kotlinx.serialization.json)
 }

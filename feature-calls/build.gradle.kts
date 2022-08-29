@@ -26,6 +26,7 @@ dependencies {
   implementation(project(":core-uistate"))
   implementation(project(":core-data"))
 
-  implementation(Dependencies.composeLifecycle)
-  implementation(Dependencies.timber)
+  implementation(libs.androidx.lifecycle.runtimeCompose)
+  implementation(libs.androidx.lifecycle.viewModelCompose)
+  implementation(libs.timber)
 }

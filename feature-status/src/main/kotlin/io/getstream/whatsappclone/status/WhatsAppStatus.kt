@@ -26,8 +26,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.FloatingActionButton
-import androidx.compose.material.Icon
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -97,7 +97,7 @@ fun WhatsAppStatus() {
         .align(Alignment.BottomEnd)
         .padding(16.dp)
         .size(58.dp),
-      backgroundColor = GREEN500,
+      containerColor = GREEN500,
       shape = CircleShape,
       onClick = { }
     ) {

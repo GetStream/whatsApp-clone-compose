@@ -17,18 +17,14 @@
 package io.getstream.whatsappclone.calls.info
 
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentWidth
-import androidx.compose.material.TopAppBar
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.SmallTopAppBar
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -44,16 +40,9 @@ import io.getstream.whatsappclone.navigation.WhatsAppCloneComposeNavigator
 fun WhatsAppCallHistoryTopBar(
   composeNavigator: AppComposeNavigator
 ) {
-  TopAppBar(
+  SmallTopAppBar(
     modifier = Modifier.fillMaxWidth(),
-    backgroundColor = MaterialTheme.colorScheme.primary,
-    elevation = 0.dp
-  ) {
-    Row(
-      modifier = Modifier
-        .wrapContentWidth()
-        .padding(12.dp)
-    ) {
+    navigationIcon = {
       Icon(
         modifier = Modifier
           .size(26.dp)
@@ -64,37 +53,35 @@ fun WhatsAppCallHistoryTopBar(
         tint = MaterialTheme.colorScheme.tertiary,
         contentDescription = null
       )
-
-      Spacer(modifier = Modifier.width(32.dp))
-
+    },
+    title = {
       Text(
         text = stringResource(id = R.string.call_info),
         color = MaterialTheme.colorScheme.tertiary,
         style = MaterialTheme.typography.titleLarge
       )
+    },
+    actions = {
+      Icon(
+        modifier = Modifier.size(26.dp),
+        imageVector = WhatsAppIcons.Message,
+        tint = MaterialTheme.colorScheme.tertiary,
+        contentDescription = null
+      )
 
-      Row(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.End
-      ) {
-        Icon(
-          modifier = Modifier.size(26.dp),
-          imageVector = WhatsAppIcons.Message,
-          tint = MaterialTheme.colorScheme.tertiary,
-          contentDescription = null
-        )
+      Spacer(modifier = Modifier.size(16.dp))
 
-        Spacer(modifier = Modifier.size(16.dp))
-
-        Icon(
-          modifier = Modifier.size(26.dp),
-          imageVector = WhatsAppIcons.MoreVert,
-          tint = MaterialTheme.colorScheme.tertiary,
-          contentDescription = null
-        )
-      }
-    }
-  }
+      Icon(
+        modifier = Modifier.size(26.dp),
+        imageVector = WhatsAppIcons.MoreVert,
+        tint = MaterialTheme.colorScheme.tertiary,
+        contentDescription = null
+      )
+    },
+    colors = TopAppBarDefaults.smallTopAppBarColors(
+      containerColor = MaterialTheme.colorScheme.primary
+    )
+  )
 }
 
 @Preview

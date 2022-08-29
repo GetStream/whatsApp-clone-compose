@@ -35,10 +35,9 @@ android {
   }
 
   packagingOptions {
-    resources.excludes.add("META-INF/LICENSE.txt")
-    resources.excludes.add("META-INF/NOTICE.txt")
-    resources.excludes.add("LICENSE.txt")
-    resources.excludes.add("/META-INF/{AL2.0,LGPL2.1}")
+    resources {
+      excludes.add("/META-INF/{AL2.0,LGPL2.1}")
+    }
   }
 
   buildTypes {
@@ -63,27 +62,27 @@ dependencies {
   implementation(project(":feature-calls"))
 
   // material
-  implementation(Dependencies.material)
+  implementation(libs.androidx.appcompat)
 
   // compose
-  implementation(Dependencies.composeActivity)
-  implementation(Dependencies.composeAnimation)
-  implementation(Dependencies.composeRuntime)
-  implementation(Dependencies.composeTooling)
-  implementation(Dependencies.composeConstraintLayout)
+  implementation(libs.androidx.activity.compose)
+  implementation(libs.androidx.compose.runtime)
+  implementation(libs.androidx.compose.ui.tooling)
+  implementation(libs.androidx.compose.ui.tooling.preview)
+  implementation(libs.androidx.compose.constraintlayout)
 
   // jetpack
-  implementation(Dependencies.appStartUp)
-  implementation(Dependencies.hiltAndroid)
-  implementation(Dependencies.hiltNavigation)
-  kapt(Dependencies.hiltCompiler)
+  implementation(libs.androidx.startup)
+  implementation(libs.hilt.android)
+  implementation(libs.androidx.hilt.navigation.compose)
+  kapt(libs.hilt.compiler)
 
   // image loading
-  implementation(Dependencies.landscapistGlide)
+  implementation(libs.landscapist.glide)
 
   // pager
-  implementation(Dependencies.accompanistPager)
-  implementation(Dependencies.accompanistIndicator)
+  implementation(libs.accompanist.pager)
+  implementation(libs.accompanist.indicator)
 
-  implementation(Dependencies.timber)
+  implementation(libs.timber)
 }

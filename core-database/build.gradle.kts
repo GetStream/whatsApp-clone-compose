@@ -34,7 +34,7 @@ android {
 dependencies {
   implementation(project(":core-model"))
 
-  implementation(Dependencies.roomRuntime)
-  implementation(Dependencies.roomKtx)
-  ksp(Dependencies.roomCompiler)
+  implementation(libs.androidx.room.runtime)
+  implementation(libs.androidx.room.ktx)
+  ksp(libs.androidx.room.compiler)
 }

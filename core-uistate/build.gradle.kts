@@ -29,8 +29,8 @@ kotlin {
 dependencies {
   implementation(project(":core-model"))
 
-  implementation(Dependencies.composeRuntime)
+  implementation(libs.androidx.compose.runtime)
 
-  implementation(Dependencies.sealedXCore)
-  ksp(Dependencies.sealedXProcessor)
+  implementation(libs.sealedx.core)
+  ksp(libs.sealedx.processor)
 }

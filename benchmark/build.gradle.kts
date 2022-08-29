@@ -49,10 +49,10 @@ android {
 }
 
 dependencies {
-  implementation(Dependencies.androidXTestRunner)
-  implementation(Dependencies.macroBenchmark)
-  implementation(Dependencies.profileInstaller)
-  implementation(Dependencies.uiAutomator)
+  implementation(libs.androidx.test.runner)
+  implementation(libs.androidx.test.uiautomator)
+  implementation(libs.androidx.benchmark.macro)
+  implementation(libs.androidx.profileinstaller)
 }
 
 androidComponents {

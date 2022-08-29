@@ -17,9 +17,11 @@ plugins {
   id("getstream.android.library")
   id("getstream.spotless")
   id("kotlin-parcelize")
+  id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 dependencies {
-  api(Dependencies.streamClient)
-  api(Dependencies.kotlinSerializationJson)
+  api(libs.stream.client)
+  api(libs.retrofit.kotlin.serialization)
+  api(libs.kotlinx.serialization.json)
 }
