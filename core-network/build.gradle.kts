@@ -17,6 +17,7 @@ plugins {
   id("getstream.android.library")
   id("getstream.android.hilt")
   id("getstream.spotless")
+  id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 dependencies {
@@ -25,6 +26,7 @@ dependencies {
   api(libs.okhttp.logging)
   api(libs.retrofit.core)
   api(libs.retrofit.result.adapter)
+
   api(libs.retrofit.kotlin.serialization)
   api(libs.kotlinx.serialization.json)
 }
