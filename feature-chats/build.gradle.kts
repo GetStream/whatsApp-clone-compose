@@ -28,9 +28,10 @@ dependencies {
   implementation(project(":core-data"))
 
   // Stream chat Compose
-  api(Dependencies.streamCompose)
+  api(libs.stream.compose)
 
-  implementation(Dependencies.composeLifecycle)
-  implementation(Dependencies.appStartUp)
-  implementation(Dependencies.timber)
+  implementation(libs.androidx.lifecycle.runtimeCompose)
+  implementation(libs.androidx.lifecycle.viewModelCompose)
+  implementation(libs.androidx.startup)
+  implementation(libs.timber)
 }

@@ -3,12 +3,13 @@ buildscript {
     google()
     maven("https://plugins.gradle.org/m2/")
   }
-  dependencies {
-    classpath(Dependencies.androidGradlePlugin)
-    classpath(Dependencies.kotlinGradlePlugin)
-    classpath(Dependencies.kotlinSerializationPlugin)
-    classpath(Dependencies.ksp)
-    classpath(Dependencies.spotlessGradlePlugin)
-    classpath(Dependencies.hiltPlugin)
-  }
+}
+
+plugins {
+  alias(libs.plugins.android.application) apply false
+  alias(libs.plugins.kotlin.jvm) apply false
+  alias(libs.plugins.kotlin.serialization) apply false
+  alias(libs.plugins.ksp) apply false
+  alias(libs.plugins.hilt) apply false
+  alias(libs.plugins.spotless) apply false
 }

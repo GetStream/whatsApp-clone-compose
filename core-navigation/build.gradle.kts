@@ -23,6 +23,6 @@ plugins {
 dependencies {
   implementation(project(":core-model"))
 
-  implementation(Dependencies.coroutines)
-  api(Dependencies.composeNavigation)
+  implementation(libs.kotlinx.coroutines.android)
+  api(libs.androidx.navigation.compose)
 }

@@ -19,15 +19,6 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
         configureKotlinAndroid(this)
         defaultConfig.targetSdk = 32
       }
-
-      val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
-      dependencies {
-        configurations.configureEach {
-          resolutionStrategy {
-
-          }
-        }
-      }
     }
   }
 }

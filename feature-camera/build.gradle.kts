@@ -21,5 +21,5 @@ plugins {
 }
 
 dependencies {
-  implementation(Dependencies.timber)
+  implementation(libs.timber)
 }

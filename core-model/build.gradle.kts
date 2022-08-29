@@ -20,6 +20,6 @@ plugins {
 }
 
 dependencies {
-  api(Dependencies.streamClient)
-  api(Dependencies.kotlinSerializationJson)
+  api(libs.stream.client)
+  api(libs.kotlinx.serialization.json)
 }

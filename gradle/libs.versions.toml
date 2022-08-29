@@ -1,5 +1,8 @@
 [versions]
-accompanist = "0.24.8-beta"
+streamChatSDK = "5.8.2"
+sealedx = "1.0.0"
+landscapist = "1.6.1"
+accompanist = "0.25.0"
 androidDesugarJdkLibs = "1.1.5"
 androidGradlePlugin = "7.2.1"
 androidxActivity = "1.4.0"
@@ -7,6 +10,8 @@ androidxAppCompat = "1.4.2"
 androidxCompose = "1.2.1"
 androidxComposeCompiler = "1.3.0"
 androidxComposeMaterial3 = "1.0.0-alpha13"
+androidxComposeConstraintLayout = "1.0.0"
+androidxComposeNavigation = "2.5.0"
 androidxCore = "1.8.0"
 androidxHiltNavigationCompose = "1.0.0"
 androidxLifecycle = "2.6.0-alpha01"
@@ -14,50 +19,63 @@ androidxMacroBenchmark = "1.1.0"
 androidxNavigation = "2.5.0"
 androidxProfileinstaller = "1.2.0-rc01"
 androidxStartup = "1.1.1"
+androidxRoom = "2.4.2"
 androidxTest = "1.4.0"
 androidxTestExt = "1.1.3"
 androidxTracing = "1.1.0"
 androidxUiAutomator = "2.2.0"
-androidxWork = "2.7.1"
 hilt = "2.42"
 hiltExt = "1.0.0"
 junit4 = "4.13.2"
 kotlin = "1.7.10"
 kotlinxCoroutines = "1.6.3"
 kotlinxSerializationJson = "1.3.3"
-ksp = "1.7.0-1.0.6"
+ksp = "1.7.10-1.0.6"
 ktlint = "0.43.0"
 okhttp = "4.10.0"
 retrofit = "2.9.0"
+retrofitResultAdapter = "1.0.1"
 retrofitKotlinxSerializationJson = "0.8.0"
-room = "2.4.2"
 spotless = "6.7.2"
 turbine = "0.8.0"
+timber = "5.0.1"
 
 [libraries]
+stream-client = { group = "io.getstream", name = "stream-chat-android-client", version.ref = "streamChatSDK" }
+stream-compose = { group = "io.getstream", name = "stream-chat-android-compose", version.ref = "streamChatSDK" }
+sealedx-core = { group = "com.github.skydoves", name = "sealedx-core", version.ref = "sealedx" }
+sealedx-processor = { group = "com.github.skydoves", name = "sealedx-processor", version.ref = "sealedx" }
+landscapist-glide = { group = "com.github.skydoves", name = "landscapist-glide", version.ref = "landscapist" }
+accompanist-pager = { group = "com.google.accompanist", name = "accompanist-pager", version.ref = "accompanist" }
+accompanist-indicator = { group = "com.google.accompanist", name = "accompanist-pager-indicators", version.ref = "accompanist" }
 android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivity" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidxAppCompat" }
 androidx-benchmark-macro = { group = "androidx.benchmark", name = "benchmark-macro-junit4", version.ref = "androidxMacroBenchmark" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxComposeNavigation" }
 androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "androidxCompose" }
 androidx-compose-foundation-layout = { group = "androidx.compose.foundation", name = "foundation-layout", version.ref = "androidxCompose" }
 androidx-compose-material-iconsExtended = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "androidxCompose" }
+androidx-compose-material = { group = "androidx.compose.material", name = "material", version.ref = "androidxCompose" }
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "androidxComposeMaterial3" }
-androidx-compose-material3-windowSizeClass = {group = "androidx.compose.material3", name = "material3-window-size-class", version.ref="androidxComposeMaterial3"}
+androidx-compose-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "androidxComposeConstraintLayout" }
 androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "androidxCompose" }
-androidx-compose-runtime-livedata = { group = "androidx.compose.runtime", name = "runtime-livedata", version.ref = "androidxCompose" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "androidxCompose" }
 androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "androidxCompose" }
 androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "androidxCompose" }
-androidx-compose-ui-util = { group = "androidx.compose.ui", name = "ui-util", version.ref = "androidxCompose" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
+androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "androidxRoom" }
+androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "androidxRoom" }
+androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "androidxRoom" }
 androidx-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "androidxHiltNavigationCompose" }
 androidx-lifecycle-runtimeCompose = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose", version.ref = "androidxLifecycle" }
 androidx-lifecycle-viewModelCompose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "androidxLifecycle" }
 androidx-profileinstaller = { group = "androidx.profileinstaller", name = "profileinstaller", version.ref = "androidxProfileinstaller" }
+androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidxTest" }
+androidx-test-rules = { group = "androidx.test", name = "rules", version.ref = "androidxTest" }
+androidx-test-uiautomator = { group = "androidx.test.uiautomator", name = "uiautomator", version.ref = "androidxUiAutomator" }
 androidx-startup = { group = "androidx.startup", name = "startup-runtime", version.ref = "androidxStartup" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
-hilt-ext-work = { group = "androidx.hilt", name = "hilt-work", version.ref = "hiltExt" }
-hilt-ext-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hiltExt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
 hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
@@ -66,10 +84,9 @@ kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
 retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-result-adapter = { group = "com.github.skydoves", name = "retrofit-adapters-result", version.ref = "retrofitResultAdapter" }
 retrofit-kotlin-serialization = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofitKotlinxSerializationJson" }
-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }
@@ -84,3 +101,4 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
