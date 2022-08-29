@@ -34,10 +34,6 @@ android {
     versionName = Configurations.versionName
   }
 
-  lint {
-    abortOnError = false
-  }
-
   packagingOptions {
     resources.excludes.add("META-INF/LICENSE.txt")
     resources.excludes.add("META-INF/NOTICE.txt")
