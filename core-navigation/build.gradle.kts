@@ -1,47 +1,28 @@
+/*
+ * Copyright 2022 Stream.IO, Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 plugins {
-  id("com.android.library")
-  id("org.jetbrains.kotlin.android")
-  id("org.jetbrains.kotlin.plugin.serialization")
-  id("kotlin-kapt")
-  id("dagger.hilt.android.plugin")
-}
-
-android {
-  namespace = "io.getstream.whatsappclone.navigation"
-  compileSdk = Configurations.compileSdk
-
-  defaultConfig {
-    minSdk = Configurations.minSdk
-    targetSdk = Configurations.targetSdk
-  }
-
-  compileOptions {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
-  }
-
-  buildFeatures {
-    compose = true
-  }
-
-  composeOptions {
-    kotlinCompilerExtensionVersion = Versions.COMPOSE_COMPILER
-  }
-
-  packagingOptions {
-    resources.excludes.add("META-INF/LICENSE.txt")
-    resources.excludes.add("META-INF/NOTICE.txt")
-    resources.excludes.add("LICENSE.txt")
-    resources.excludes.add("/META-INF/{AL2.0,LGPL2.1}")
-  }
+  id("getstream.android.library")
+  id("getstream.android.library.compose")
+  id("getstream.android.hilt")
+  id("getstream.spotless")
 }
 
 dependencies {
   implementation(project(":core-model"))
 
   implementation(Dependencies.coroutines)
-  api(Dependencies.hiltAndroid)
-  api(Dependencies.hiltNavigation)
   api(Dependencies.composeNavigation)
-  kapt(Dependencies.hiltCompiler)
 }

@@ -28,5 +28,7 @@ abstract class NavigationModule {
 
   @Binds
   @Singleton
-  abstract fun provideComposeNavigator(whatsAppCloneComposeNavigator: WhatsAppCloneComposeNavigator): AppComposeNavigator
+  abstract fun provideComposeNavigator(
+    whatsAppCloneComposeNavigator: WhatsAppCloneComposeNavigator
+  ): AppComposeNavigator
 }

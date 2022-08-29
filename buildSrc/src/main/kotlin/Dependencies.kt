@@ -1,3 +1,4 @@
+// TODO: Migrate into the libs.versions.toml
 object Versions {
   internal const val ANDROID_GRADLE_PLUGIN = "7.2.1"
   internal const val ANDROID_GRADLE_SPOTLESS = "6.7.0"

@@ -65,7 +65,9 @@ abstract class AppComposeNavigator : Navigator() {
     }
   }
 
-  private fun NavController.navUpWithResult(navigationCommand: ComposeNavigationCommand.NavigateUpWithResult<*>) {
+  private fun NavController.navUpWithResult(
+    navigationCommand: ComposeNavigationCommand.NavigateUpWithResult<*>
+  ) {
     val backStackEntry =
       navigationCommand.route?.let { getBackStackEntry(it) }
         ?: previousBackStackEntry
