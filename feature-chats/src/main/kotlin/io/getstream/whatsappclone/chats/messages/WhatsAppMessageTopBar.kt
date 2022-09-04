@@ -17,6 +17,7 @@
 package io.getstream.whatsappclone.chats.messages
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -108,21 +109,23 @@ private fun WhatsAppMessageUserInfo(
     WhatsAppMessageUiState.Loading -> WhatsAppLoadingIndicator()
     WhatsAppMessageUiState.Error -> Unit
     is WhatsAppMessageUiState.Success -> {
-      GlideImage(
-        modifier = Modifier
-          .size(32.dp)
-          .clip(CircleShape),
-        imageModel = messageUiState.data.image.takeIf { it.isNotEmpty() }
-          ?: io.getstream.whatsappclone.designsystem.R.drawable.stream_logo,
-        previewPlaceholder = io.getstream.whatsappclone.designsystem.R.drawable.placeholder
-      )
+      Row {
+        GlideImage(
+          modifier = Modifier
+            .size(32.dp)
+            .clip(CircleShape),
+          imageModel = messageUiState.data.image.takeIf { it.isNotEmpty() }
+            ?: io.getstream.whatsappclone.designsystem.R.drawable.stream_logo,
+          previewPlaceholder = io.getstream.whatsappclone.designsystem.R.drawable.placeholder
+        )
 
-      Text(
-        modifier = Modifier.padding(start = 12.dp),
-        text = messageUiState.data.name,
-        color = MaterialTheme.colorScheme.tertiary,
-        style = MaterialTheme.typography.bodyLarge
-      )
+        Text(
+          modifier = Modifier.padding(start = 12.dp),
+          text = messageUiState.data.name,
+          color = MaterialTheme.colorScheme.tertiary,
+          style = MaterialTheme.typography.bodyLarge
+        )
+      }
     }
   }
 }
