@@ -19,11 +19,11 @@ package io.getstream.whatsappclone.calls
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import io.getstream.whatsappclone.data.coroutines.WhileSubscribedOrRetained
 import io.getstream.whatsappclone.data.repository.CallHistoryRepository
 import io.getstream.whatsappclone.uistate.WhatsAppUserExtensive
 import io.getstream.whatsappclone.uistate.WhatsAppUserUiState
 import javax.inject.Inject
-import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
@@ -49,7 +49,7 @@ class WhatsAppCallsViewModel @Inject constructor(
       }
       .stateIn(
         scope = viewModelScope,
-        started = SharingStarted.WhileSubscribed(5_000),
+        started = WhileSubscribedOrRetained,
         initialValue = WhatsAppUserUiState.Loading
       )
 }
