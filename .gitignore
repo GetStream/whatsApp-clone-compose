@@ -14,8 +14,6 @@ gen/
 out/
 
 # Gradle files
-/.idea
-!/.idea/codeInsightSettings.xml
 .gradle/
 build/
 
@@ -36,11 +34,8 @@ captures/
 
 # Intellij
 *.iml
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/gradle.xml
-.idea/dictionaries
-.idea/libraries
+/.idea/*
+!.idea/codeInsightSettings.xml
 app/.idea/
 
 # Mac
