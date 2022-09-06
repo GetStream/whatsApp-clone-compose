@@ -15,6 +15,7 @@ out/
 
 # Gradle files
 /.idea
+!/.idea/codeInsightSettings.xml
 .gradle/
 build/
 
