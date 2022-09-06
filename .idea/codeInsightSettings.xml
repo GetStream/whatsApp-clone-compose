@@ -3,7 +3,7 @@
   <component name="JavaProjectCodeInsightSettings">
     <excluded-names>
       <name>java.lang.reflect.Modifier</name>
-      <name>java.nio.file.WatchEvent</name>
+      <name>java.nio.file.WatchEvent.Modifier</name>
       <name>android.graphics.Color</name>
       <name>android.graphics.Paint</name>
     </excluded-names>
