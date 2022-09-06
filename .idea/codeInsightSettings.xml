@@ -14,6 +14,7 @@
       <name>org.threeten.bp.format.TextStyle</name>
       <name>android.text.Layout.Alignment</name>
       <name>android.widget.GridLayout.Alignment</name>
+      <name>android.graphics.Canvas</name>
       <name>android.graphics.Color</name>
       <name>android.graphics.Paint</name>
     </excluded-names>
