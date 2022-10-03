@@ -5,8 +5,9 @@
 
 version: 2
 updates:
-  - package-ecosystem: "" # See documentation for possible values
+  - package-ecosystem: "gradle" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
+    # Allow up to 10 open pull requests for pip dependencies
     open-pull-requests-limit: 10
