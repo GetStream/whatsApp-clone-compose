@@ -35,6 +35,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.skydoves.landscapist.animation.crossfade.CrossfadePlugin
+import com.skydoves.landscapist.components.rememberImageComponent
 import com.skydoves.landscapist.glide.GlideImage
 import io.getstream.chat.android.client.ChatClient
 import io.getstream.whatsappclone.designsystem.component.WhatsAppLoadingIndicator
@@ -117,6 +119,9 @@ private fun WhatsAppMessageUserInfo(
           imageModel = {
             messageUiState.data.image.takeIf { it.isNotEmpty() }
               ?: io.getstream.whatsappclone.designsystem.R.drawable.stream_logo
+          },
+          component = rememberImageComponent {
+            +CrossfadePlugin()
           },
           previewPlaceholder = io.getstream.whatsappclone.designsystem.R.drawable.placeholder
         )
