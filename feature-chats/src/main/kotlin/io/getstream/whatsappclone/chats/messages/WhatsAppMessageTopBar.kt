@@ -114,8 +114,10 @@ private fun WhatsAppMessageUserInfo(
           modifier = Modifier
             .size(32.dp)
             .clip(CircleShape),
-          imageModel = messageUiState.data.image.takeIf { it.isNotEmpty() }
-            ?: io.getstream.whatsappclone.designsystem.R.drawable.stream_logo,
+          imageModel = {
+            messageUiState.data.image.takeIf { it.isNotEmpty() }
+              ?: io.getstream.whatsappclone.designsystem.R.drawable.stream_logo
+          },
           previewPlaceholder = io.getstream.whatsappclone.designsystem.R.drawable.placeholder
         )
 
