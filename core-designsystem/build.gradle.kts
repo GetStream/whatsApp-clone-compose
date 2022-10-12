@@ -22,6 +22,8 @@ plugins {
 dependencies {
   // image loading
   api(libs.landscapist.glide)
+  api(libs.landscapist.animation)
+  api(libs.landscapist.placeholder)
 
   api(libs.androidx.compose.runtime)
   api(libs.androidx.compose.ui)

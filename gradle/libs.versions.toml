@@ -1,7 +1,7 @@
 [versions]
 streamChatSDK = "5.11.1"
 sealedx = "1.0.0"
-landscapist = "1.6.1"
+landscapist = "2.0.1"
 accompanist = "0.25.0"
 androidDesugarJdkLibs = "1.1.5"
 androidGradlePlugin = "7.3.0"
@@ -46,6 +46,8 @@ stream-compose = { group = "io.getstream", name = "stream-chat-android-compose",
 sealedx-core = { group = "com.github.skydoves", name = "sealedx-core", version.ref = "sealedx" }
 sealedx-processor = { group = "com.github.skydoves", name = "sealedx-processor", version.ref = "sealedx" }
 landscapist-glide = { group = "com.github.skydoves", name = "landscapist-glide", version.ref = "landscapist" }
+landscapist-animation = { group = "com.github.skydoves", name = "landscapist-animation", version.ref = "landscapist" }
+landscapist-placeholder = { group = "com.github.skydoves", name = "landscapist-placeholder", version.ref = "landscapist" }
 accompanist-pager = { group = "com.google.accompanist", name = "accompanist-pager", version.ref = "accompanist" }
 accompanist-indicator = { group = "com.google.accompanist", name = "accompanist-pager-indicators", version.ref = "accompanist" }
 android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }

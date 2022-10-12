@@ -53,7 +53,7 @@ fun WhatsAppCallHistoryInfoBody(
           start.linkTo(parent.start)
           top.linkTo(parent.top)
         },
-      imageModel = whatsAppUser.picture,
+      imageModel = { whatsAppUser.picture },
       previewPlaceholder = R.drawable.placeholder
     )
 

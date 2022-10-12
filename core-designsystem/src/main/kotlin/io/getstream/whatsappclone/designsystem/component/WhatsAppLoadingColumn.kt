@@ -26,7 +26,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
-import com.skydoves.landscapist.Shimmer
+import com.skydoves.landscapist.placeholder.shimmer.Shimmer
 import io.getstream.whatsappclone.designsystem.theme.shimmerHighLight
 
 @Composable

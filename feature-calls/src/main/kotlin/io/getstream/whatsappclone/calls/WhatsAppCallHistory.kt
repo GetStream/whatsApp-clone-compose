@@ -56,7 +56,7 @@ fun WhatsAppCallHistory(
         modifier = Modifier
           .size(56.dp)
           .clip(CircleShape),
-        imageModel = whatsAppUser.picture,
+        imageModel = { whatsAppUser.picture },
         previewPlaceholder = io.getstream.whatsappclone.designsystem.R.drawable.placeholder
       )
 

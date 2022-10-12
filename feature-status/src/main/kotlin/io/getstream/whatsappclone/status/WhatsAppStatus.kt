@@ -62,7 +62,7 @@ fun WhatsAppStatus() {
           modifier = Modifier
             .size(56.dp)
             .clip(CircleShape),
-          imageModel = "https://placekitten.com/200/300",
+          imageModel = { "https://placekitten.com/200/300" },
           previewPlaceholder = io.getstream.whatsappclone.designsystem.R.drawable.placeholder
         )
 
