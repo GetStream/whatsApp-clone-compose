@@ -61,7 +61,7 @@ If you’re interested in adding powerful In-App Messaging to your app, check ou
   - Navigation: For navigating screens and [Hilt Navigation Compose](https://developer.android.com/jetpack/compose/libraries#hilt) for injecting dependencies.
   - Room: Constructs Database by providing an abstraction layer over SQLite to allow fluent database access.
   - [Hilt](https://dagger.dev/hilt/): Dependency Injection.
-- [Landscapist-Glide](https://github.com/skydoves/landscapist#glide): Jetpack Compose image loading library that fetches and displays network images with Glide, Coil, and Fresco.
+- [Landscapist Glide](https://github.com/skydoves/landscapist#glide), [animation](https://github.com/skydoves/landscapist#animation), [placeholder](https://github.com/skydoves/landscapist#placeholder): Jetpack Compose image loading library that fetches and displays network images with Glide, Coil, and Fresco.
 - [accompanist](https://github.com/google/accompanist): A collection of extension libraries for Jetpack Compose
 - [Retrofit2 & OkHttp3](https://github.com/square/retrofit): Construct the REST APIs and paging network data.
 - [Retrofit adapters](https://github.com/skydoves/retrofit-adapters): Retrofit adapters for modeling network responses with Kotlin Result, Jetpack Paging3, and Arrow Either.
