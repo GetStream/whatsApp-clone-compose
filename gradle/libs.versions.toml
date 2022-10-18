@@ -1,7 +1,7 @@
 [versions]
 streamChatSDK = "5.11.1"
 sealedx = "1.0.0"
-landscapist = "2.0.1"
+landscapist = "2.0.2"
 accompanist = "0.25.0"
 androidDesugarJdkLibs = "1.1.5"
 androidGradlePlugin = "7.3.0"
