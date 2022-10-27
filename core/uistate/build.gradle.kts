@@ -15,26 +15,22 @@
  */
 plugins {
   id("getstream.android.library")
-  id("getstream.android.hilt")
+  id("getstream.android.library.compose")
   id("getstream.spotless")
   id("com.google.devtools.ksp")
 }
 
-android {
-  defaultConfig {
-    // The schemas directory contains a schema file for each version of the Room database.
-    // This is required to enable Room auto migrations.
-    // See https://developer.android.com/reference/kotlin/androidx/room/AutoMigration.
-    ksp {
-      arg("room.schemaLocation", "$projectDir/schemas")
-    }
+kotlin {
+  sourceSets.configureEach {
+    kotlin.srcDir("$buildDir/generated/ksp/$name/kotlin/")
   }
 }
 
 dependencies {
-  implementation(project(":core-model"))
+  implementation(project(":core:model"))
 
-  implementation(libs.androidx.room.runtime)
-  implementation(libs.androidx.room.ktx)
-  ksp(libs.androidx.room.compiler)
+  implementation(libs.androidx.compose.runtime)
+
+  implementation(libs.sealedx.core)
+  ksp(libs.sealedx.processor)
 }

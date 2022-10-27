@@ -16,21 +16,17 @@
 plugins {
   id("getstream.android.library")
   id("getstream.android.library.compose")
+  id("getstream.android.feature")
+  id("getstream.android.hilt")
   id("getstream.spotless")
-  id("com.google.devtools.ksp")
-}
-
-kotlin {
-  sourceSets.configureEach {
-    kotlin.srcDir("$buildDir/generated/ksp/$name/kotlin/")
-  }
 }
 
 dependencies {
-  implementation(project(":core-model"))
+  // core modules
+  implementation(project(":core:uistate"))
+  implementation(project(":core:data"))
 
-  implementation(libs.androidx.compose.runtime)
-
-  implementation(libs.sealedx.core)
-  ksp(libs.sealedx.processor)
+  implementation(libs.androidx.lifecycle.runtimeCompose)
+  implementation(libs.androidx.lifecycle.viewModelCompose)
+  implementation(libs.timber)
 }

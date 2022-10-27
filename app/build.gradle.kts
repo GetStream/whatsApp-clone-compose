@@ -51,15 +51,15 @@ android {
 
 dependencies {
   // core modules
-  implementation(project(":core-designsystem"))
-  implementation(project(":core-navigation"))
-  implementation(project(":core-data"))
+  implementation(project(":core:designsystem"))
+  implementation(project(":core:navigation"))
+  implementation(project(":core:data"))
 
   // feature modules
-  implementation(project(":feature-camera"))
-  implementation(project(":feature-chats"))
-  implementation(project(":feature-status"))
-  implementation(project(":feature-calls"))
+  implementation(project(":feature:camera"))
+  implementation(project(":feature:chats"))
+  implementation(project(":feature:status"))
+  implementation(project(":feature:calls"))
 
   // material
   implementation(libs.androidx.appcompat)

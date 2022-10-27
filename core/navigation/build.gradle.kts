@@ -16,22 +16,13 @@
 plugins {
   id("getstream.android.library")
   id("getstream.android.library.compose")
-  id("getstream.android.feature")
   id("getstream.android.hilt")
   id("getstream.spotless")
 }
 
 dependencies {
-  // core modules
-  implementation(project(":core-uistate"))
-  implementation(project(":core-network"))
-  implementation(project(":core-data"))
+  implementation(project(":core:model"))
 
-  // Stream chat Compose
-  api(libs.stream.compose)
-
-  implementation(libs.androidx.lifecycle.runtimeCompose)
-  implementation(libs.androidx.lifecycle.viewModelCompose)
-  implementation(libs.androidx.startup)
-  implementation(libs.timber)
+  implementation(libs.kotlinx.coroutines.android)
+  api(libs.androidx.navigation.compose)
 }
