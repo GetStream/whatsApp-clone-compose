@@ -56,10 +56,10 @@ dependencies {
   implementation(project(":core:data"))
 
   // feature modules
-  implementation(project(":feature:camera"))
-  implementation(project(":feature:chats"))
-  implementation(project(":feature:status"))
-  implementation(project(":feature:calls"))
+  implementation(project(":features:camera"))
+  implementation(project(":features:chats"))
+  implementation(project(":features:status"))
+  implementation(project(":features:calls"))
 
   // material
   implementation(libs.androidx.appcompat)
