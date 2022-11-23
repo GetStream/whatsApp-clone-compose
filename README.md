@@ -39,6 +39,10 @@ Go to the [Releases](https://github.com/GetStream/whatsapp-clone-compose/release
 **WhatsApp Clone Compose** is built with __[Stream Chat SDK for Compose](https://getstream.io/chat/sdk/compose?utm_source=Github&utm_medium=Github_Repo_Content_Ad&utm_content=Developer&utm_campaign=Github_Aug2022_WhatsAppComposeClone&utm_term=DevRelOss)__ to implement messaging systems.
 If you’re interested in adding powerful In-App Messaging to your app, check out the __[Android Chat Messaging Tutorial](https://getstream.io/tutorials/android-chat?utm_source=Github&utm_medium=Github_Repo_Content_Ad&utm_content=Developer&utm_campaign=Github_Aug2022_WhatsAppCloneCompose&utm_term=DevRelOss)__!
 
+- [Stream Chat SDK for Android on GitHub](https://github.com/getStream/stream-chat-android)
+- [Android Samples for Stream Chat SDK on GitHub](https://github.com/getStream/android-samples)
+- [Stream Chat Compose UI Componenets Guidelines](https://getstream.io/chat/docs/sdk/android/compose/overview/)
+
 ## 📷 Previews
 
 <p align="center">
