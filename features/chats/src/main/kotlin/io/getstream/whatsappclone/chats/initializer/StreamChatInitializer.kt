@@ -24,9 +24,9 @@ import io.getstream.chat.android.client.models.User
 import io.getstream.chat.android.offline.model.message.attachments.UploadAttachmentsNetworkType
 import io.getstream.chat.android.offline.plugin.configuration.Config
 import io.getstream.chat.android.offline.plugin.factory.StreamOfflinePluginFactory
+import io.getstream.log.streamLog
 import io.getstream.whatsappclone.chats.BuildConfig
 import io.getstream.whatsappclone.chats.R
-import timber.log.Timber
 
 /**
  * StreamChatInitializer initializes all Stream Client components.
@@ -34,7 +34,7 @@ import timber.log.Timber
 class StreamChatInitializer : Initializer<Unit> {
 
   override fun create(context: Context) {
-    Timber.d("StreamChatInitializer is initialized")
+    streamLog { "StreamChatInitializer is initialized" }
 
     /**
      * initialize a global instance of the [ChatClient].
@@ -67,5 +67,5 @@ class StreamChatInitializer : Initializer<Unit> {
   }
 
   override fun dependencies(): List<Class<out Initializer<*>>> =
-    listOf(TimberInitializer::class.java)
+    listOf(StreamLogInitializer::class.java)
 }

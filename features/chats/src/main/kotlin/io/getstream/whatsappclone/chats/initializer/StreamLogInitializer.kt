@@ -18,15 +18,16 @@ package io.getstream.whatsappclone.chats.initializer
 
 import android.content.Context
 import androidx.startup.Initializer
-import io.getstream.whatsappclone.chats.BuildConfig
-import timber.log.Timber
+import io.getstream.log.android.AndroidStreamLogger
+import io.getstream.log.android.BuildConfig
+import io.getstream.log.streamLog
 
-class TimberInitializer : Initializer<Unit> {
+class StreamLogInitializer : Initializer<Unit> {
 
   override fun create(context: Context) {
     if (BuildConfig.DEBUG) {
-      Timber.plant(Timber.DebugTree())
-      Timber.d("TimberInitializer is initialized")
+      AndroidStreamLogger.install()
+      streamLog { "StreamLogInitializer is initialized" }
     }
   }
 
