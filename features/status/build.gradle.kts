@@ -21,5 +21,5 @@ plugins {
 }
 
 dependencies {
-  implementation(libs.timber)
+  implementation(libs.stream.log)
 }

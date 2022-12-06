@@ -71,7 +71,7 @@ If you’re interested in adding powerful In-App Messaging to your app, check ou
 - [Retrofit adapters](https://github.com/skydoves/retrofit-adapters): Retrofit adapters for modeling network responses with Kotlin Result, Jetpack Paging3, and Arrow Either.
 - [ksp](https://github.com/google/ksp): Kotlin Symbol Processing API.
 - [sealedx](https://github.com/skydoves/sealedx): Kotlin Symbol Processor to auto-generate extensive sealed classes and interfaces.
-- [Timber](https://github.com/JakeWharton/timber): A logger with a small, extensible API which provides utility.
+- [StreamLog](https://github.com/GetStream/stream-log): A lightweight and extensible logger library for Kotlin and Android.
 - Baseline Profiles: To improve app performance by including a list of classes and methods specifications in your APK that can be used by Android Runtime.
 
 ## 🏛️ Architecture

@@ -1,5 +1,6 @@
 [versions]
 streamChatSDK = "5.11.7"
+streamLog = "1.1.0"
 sealedx = "1.0.0"
 landscapist = "2.1.0"
 accompanist = "0.25.0"
@@ -17,7 +18,7 @@ androidxHiltNavigationCompose = "1.0.0"
 androidxLifecycle = "2.6.0-alpha01"
 androidxMacroBenchmark = "1.1.0"
 androidxNavigation = "2.5.0"
-androidxProfileinstaller = "1.2.0-rc01"
+androidxProfileinstaller = "1.2.0"
 androidxStartup = "1.1.1"
 androidxRoom = "2.4.2"
 androidxTest = "1.4.0"
@@ -34,15 +35,15 @@ ksp = "1.7.20-1.0.6"
 ktlint = "0.43.0"
 okhttp = "4.10.0"
 retrofit = "2.9.0"
-retrofitResultAdapter = "1.0.4"
+retrofitResultAdapter = "1.0.5"
 retrofitKotlinxSerializationJson = "0.8.0"
-spotless = "6.7.2"
+spotless = "6.7.0"
 turbine = "0.8.0"
-timber = "5.0.1"
 
 [libraries]
 stream-client = { group = "io.getstream", name = "stream-chat-android-client", version.ref = "streamChatSDK" }
 stream-compose = { group = "io.getstream", name = "stream-chat-android-compose", version.ref = "streamChatSDK" }
+stream-log = { group = "io.getstream", name = "stream-log-android", version.ref = "streamLog" }
 sealedx-core = { group = "com.github.skydoves", name = "sealedx-core", version.ref = "sealedx" }
 sealedx-processor = { group = "com.github.skydoves", name = "sealedx-processor", version.ref = "sealedx" }
 landscapist-glide = { group = "com.github.skydoves", name = "landscapist-glide", version.ref = "landscapist" }
@@ -88,7 +89,6 @@ turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine
 retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-result-adapter = { group = "com.github.skydoves", name = "retrofit-adapters-result", version.ref = "retrofitResultAdapter" }
 retrofit-kotlin-serialization = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "retrofitKotlinxSerializationJson" }
-timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 
 # Dependencies of the included build-logic
 android-gradlePlugin = { group = "com.android.tools.build", name = "gradle", version.ref = "androidGradlePlugin" }

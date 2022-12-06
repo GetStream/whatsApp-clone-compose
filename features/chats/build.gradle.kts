@@ -33,5 +33,5 @@ dependencies {
   implementation(libs.androidx.lifecycle.runtimeCompose)
   implementation(libs.androidx.lifecycle.viewModelCompose)
   implementation(libs.androidx.startup)
-  implementation(libs.timber)
+  implementation(libs.stream.log)
 }

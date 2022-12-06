@@ -84,5 +84,5 @@ dependencies {
   implementation(libs.accompanist.pager)
   implementation(libs.accompanist.indicator)
 
-  implementation(libs.timber)
+  implementation(libs.stream.log)
 }
