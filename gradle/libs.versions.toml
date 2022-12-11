@@ -1,6 +1,6 @@
 [versions]
 streamChatSDK = "5.11.7"
-streamLog = "1.1.0"
+streamLog = "1.1.3"
 sealedx = "1.0.0"
 landscapist = "2.1.0"
 accompanist = "0.25.0"
