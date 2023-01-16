@@ -26,6 +26,6 @@ import io.getstream.whatsappclone.database.entity.WhatsAppUserEntity
   version = 1,
   exportSchema = true
 )
-abstract class WhatsAppCloneDataBase : RoomDatabase() {
+internal abstract class WhatsAppCloneDataBase : RoomDatabase() {
   abstract fun whatsAppUserDao(): WhatsAppUserDao
 }

@@ -34,7 +34,7 @@ import retrofit2.create
 
 @Module
 @InstallIn(SingletonComponent::class)
-object NetworkModule {
+internal object NetworkModule {
 
   @Provides
   @Singleton

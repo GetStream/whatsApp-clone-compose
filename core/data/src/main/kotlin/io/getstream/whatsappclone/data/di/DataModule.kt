@@ -25,7 +25,7 @@ import io.getstream.whatsappclone.data.repository.CallHistoryRepositoryImpl
 
 @Module
 @InstallIn(SingletonComponent::class)
-interface DataModule {
+internal interface DataModule {
 
   @Binds
   fun bindsCallHistoryRepository(

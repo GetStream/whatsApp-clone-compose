@@ -29,7 +29,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
-class CallHistoryRepositoryImpl @Inject constructor(
+internal class CallHistoryRepositoryImpl @Inject constructor(
   @Dispatcher(WhatsAppDispatchers.IO) private val ioDispatcher: CoroutineDispatcher,
   private val whatsAppUserService: WhatsAppUserService,
   private val whatsAppUserDao: WhatsAppUserDao
