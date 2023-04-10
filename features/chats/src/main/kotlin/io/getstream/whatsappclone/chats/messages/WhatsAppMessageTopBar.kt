@@ -45,7 +45,6 @@ import io.getstream.whatsappclone.designsystem.theme.WhatsAppCloneComposeTheme
 import io.getstream.whatsappclone.navigation.AppComposeNavigator
 import io.getstream.whatsappclone.navigation.WhatsAppCloneComposeNavigator
 import io.getstream.whatsappclone.uistate.WhatsAppMessageUiState
-import kotlinx.coroutines.Dispatchers
 
 @Composable
 fun WhatsAppMessageTopBar(
@@ -142,7 +141,7 @@ private fun WhatsAppMessageUserInfo(
 private fun WhatsAppTopBarPreview() {
   WhatsAppCloneComposeTheme {
     WhatsAppMessageTopBar(
-      WhatsAppMessagesViewModel(Dispatchers.IO, ChatClient.instance()),
+      WhatsAppMessagesViewModel(ChatClient.instance()),
       WhatsAppCloneComposeNavigator()
     )
   }
@@ -153,7 +152,7 @@ private fun WhatsAppTopBarPreview() {
 private fun WhatsAppTopBarDarkPreview() {
   WhatsAppCloneComposeTheme(darkTheme = true) {
     WhatsAppMessageTopBar(
-      WhatsAppMessagesViewModel(Dispatchers.IO, ChatClient.instance()),
+      WhatsAppMessagesViewModel(ChatClient.instance()),
       WhatsAppCloneComposeNavigator()
     )
   }
