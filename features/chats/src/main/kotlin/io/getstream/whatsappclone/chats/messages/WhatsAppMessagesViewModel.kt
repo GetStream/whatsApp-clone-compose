@@ -22,18 +22,14 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import io.getstream.chat.android.client.ChatClient
 import io.getstream.chat.android.client.utils.onError
 import io.getstream.chat.android.client.utils.onSuccess
-import io.getstream.whatsappclone.network.Dispatcher
-import io.getstream.whatsappclone.network.WhatsAppDispatchers
 import io.getstream.whatsappclone.uistate.WhatsAppMessageUiState
 import javax.inject.Inject
-import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 @HiltViewModel
 class WhatsAppMessagesViewModel @Inject constructor(
-  @Dispatcher(WhatsAppDispatchers.IO) private val ioDispatcher: CoroutineDispatcher,
   private val chatClient: ChatClient
 ) : ViewModel() {
   private val messageMutableUiState =
@@ -47,7 +43,7 @@ class WhatsAppMessagesViewModel @Inject constructor(
   }
 
   private fun fetchChannel(channelId: String) {
-    viewModelScope.launch(ioDispatcher) {
+    viewModelScope.launch {
       val result = chatClient.channel(channelId).watch().await()
       result.onSuccess {
         messageMutableUiState.value = WhatsAppMessageUiState.Success(result.data())
