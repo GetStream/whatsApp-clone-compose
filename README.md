@@ -1,4 +1,5 @@
-![Whats-App-Clone-Project-1200x630px](https://user-images.githubusercontent.com/24237865/183430539-7bfa14da-0015-4e57-bc71-5c8ff07eb47b.png)
+![Github Repo Size](https://img.shields.io/github/repo-size/GetStream/whatsApp-clone-compose?style=for-the-badge&color=black) 
+<div align="center"><img width="600" src="https://user-images.githubusercontent.com/24237865/183430539-7bfa14da-0015-4e57-bc71-5c8ff07eb47b.png" /></div>
 
 <p align="center">
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
@@ -9,7 +10,7 @@
 
 This is a [WhatsApp](https://www.whatsapp.com/) clone app built with Jetpack Compose and [Stream Chat SDK for Compose](https://getstream.io/chat/sdk/compose?utm_source=Github&utm_medium=Github_Repo_Content_Ad&utm_content=Developer&utm_campaign=Github_Dec2022_Jaewoong_WhatsAppCompose&utm_term=DevRelOss).
 
-The purpose of this repository is to demonstrate below:
+## Purpose of the Repo 
 
 - Implementing entire UI elements with Jetpack Compose.
 - Implementation of Android architecture components with Jetpack libraries such as Hilt and AppStartup.
@@ -156,7 +157,7 @@ For more information about the overall architecture, check out **[Build a Real-T
 
 ## 🤝 Contribution
 
-Most of the features are not completed except the chat feature, so anyone can contribute and improve this project following the [Contributing Guideline](https://github.com/GetStream/whatsapp-clone-compose/blob/main/CONTRIBUTING.md).
+Most of the features are not completed except the chat feature, so anyone can contribute and improve this project following the [Contributing Guidelines](https://github.com/GetStream/whatsapp-clone-compose/blob/main/CONTRIBUTING.md).
 
 ## Find this repository useful? 💙
 Support it by joining __[stargazers](https://github.com/GetStream/whatsapp-clone-compose/stargazers)__ for this repository. :star: <br>
