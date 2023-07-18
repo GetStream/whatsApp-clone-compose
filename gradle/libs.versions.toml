@@ -37,7 +37,7 @@ okhttp = "4.11.0"
 retrofit = "2.9.0"
 retrofitResultAdapter = "1.0.6"
 retrofitKotlinxSerializationJson = "1.0.0"
-spotless = "6.7.0"
+spotless = "6.20.0"
 turbine = "1.0.0"
 
 [libraries]
