@@ -20,6 +20,10 @@ plugins {
   id("getstream.spotless")
 }
 
+android {
+  namespace = "io.getstream.whatsappclone.camera"
+}
+
 dependencies {
   implementation(libs.stream.log)
 }

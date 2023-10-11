@@ -19,6 +19,10 @@ plugins {
   id("getstream.spotless")
 }
 
+android {
+  namespace = "io.getstream.whatsappclone.data"
+}
+
 dependencies {
   api(project(":core:model"))
   api(project(":core:network"))

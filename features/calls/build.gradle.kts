@@ -21,6 +21,10 @@ plugins {
   id("getstream.spotless")
 }
 
+android {
+  namespace = "io.getstream.whatsappclone.calls"
+}
+
 dependencies {
   // core modules
   implementation(project(":core:uistate"))
