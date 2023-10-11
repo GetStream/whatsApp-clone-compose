@@ -20,6 +20,10 @@ plugins {
   id("getstream.spotless")
 }
 
+android {
+  namespace = "io.getstream.whatsappclone.navigation"
+}
+
 dependencies {
   implementation(project(":core:model"))
 

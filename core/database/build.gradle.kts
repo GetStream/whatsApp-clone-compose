@@ -21,6 +21,7 @@ plugins {
 }
 
 android {
+  namespace = "io.getstream.whatsappclone.database"
   defaultConfig {
     // The schemas directory contains a schema file for each version of the Room database.
     // This is required to enable Room auto migrations.

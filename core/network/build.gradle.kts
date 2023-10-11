@@ -20,6 +20,10 @@ plugins {
   id("org.jetbrains.kotlin.plugin.serialization")
 }
 
+android {
+  namespace = "io.getstream.whatsappclone.network"
+}
+
 dependencies {
   implementation(project(":core:model"))
 

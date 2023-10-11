@@ -19,6 +19,10 @@ plugins {
   id("getstream.spotless")
 }
 
+android {
+  namespace = "io.getstream.whatsappclone.designsystem"
+}
+
 dependencies {
   // image loading
   api(libs.landscapist.glide)

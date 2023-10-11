@@ -20,6 +20,10 @@ plugins {
   id("com.google.devtools.ksp")
 }
 
+android {
+  namespace = "io.getstream.whatsappclone.uistate"
+}
+
 kotlin {
   sourceSets.configureEach {
     kotlin.srcDir("$buildDir/generated/ksp/$name/kotlin/")
