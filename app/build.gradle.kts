@@ -73,9 +73,6 @@ dependencies {
 
   // jetpack
   implementation(libs.androidx.startup)
-  implementation(libs.hilt.android)
-  implementation(libs.androidx.hilt.navigation.compose)
-  kapt(libs.hilt.compiler)
 
   // image loading
   implementation(libs.landscapist.glide)
