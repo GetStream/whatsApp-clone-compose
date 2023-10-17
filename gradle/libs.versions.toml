@@ -25,6 +25,7 @@ androidxTest = "1.5.0"
 androidxTestExt = "1.1.3"
 androidxTracing = "1.1.0"
 androidxUiAutomator = "2.2.0"
+composeStableMarker = "1.0.1"
 hilt = "2.48.1"
 hiltExt = "1.0.0"
 junit4 = "4.13.2"
@@ -78,6 +79,7 @@ androidx-test-runner = { group = "androidx.test", name = "runner", version.ref =
 androidx-test-rules = { group = "androidx.test", name = "rules", version.ref = "androidxTest" }
 androidx-test-uiautomator = { group = "androidx.test.uiautomator", name = "uiautomator", version.ref = "androidxUiAutomator" }
 androidx-startup = { group = "androidx.startup", name = "startup-runtime", version.ref = "androidxStartup" }
+compose-stable-marker = { group = "com.github.skydoves", name = "compose-stable-marker", version.ref = "composeStableMarker" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
 hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "hilt" }
