@@ -21,17 +21,21 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.getstream.whatsappclone.data.coroutines.WhileSubscribedOrRetained
 import io.getstream.whatsappclone.data.repository.CallHistoryRepository
+import io.getstream.whatsappclone.model.WhatsAppUser
+import io.getstream.whatsappclone.navigation.AppComposeNavigator
+import io.getstream.whatsappclone.navigation.WhatsAppScreens
 import io.getstream.whatsappclone.uistate.WhatsAppUserExtensive
 import io.getstream.whatsappclone.uistate.WhatsAppUserUiState
-import javax.inject.Inject
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.stateIn
+import javax.inject.Inject
 
 @HiltViewModel
 class WhatsAppCallsViewModel @Inject constructor(
-  callHistoryRepository: CallHistoryRepository
+  callHistoryRepository: CallHistoryRepository,
+  private val composeNavigator: AppComposeNavigator
 ) : ViewModel() {
 
   val whatsAppUserState: StateFlow<WhatsAppUserUiState> =
@@ -52,4 +56,8 @@ class WhatsAppCallsViewModel @Inject constructor(
         started = WhileSubscribedOrRetained,
         initialValue = WhatsAppUserUiState.Loading
       )
+
+  fun navigateToCallInfo(whatsAppUser: WhatsAppUser) {
+    composeNavigator.navigate(WhatsAppScreens.CallInfo.createRoute(whatsAppUser = whatsAppUser))
+  }
 }

@@ -29,13 +29,11 @@ import io.getstream.whatsappclone.ui.WhatsAppTabPager
 import io.getstream.whatsappclone.ui.WhatsAppTopBar
 
 fun NavGraphBuilder.whatsAppHomeNavigation(
-  composeNavigator: AppComposeNavigator
 ) {
   composable(route = WhatsAppScreens.Home.name) {
     Scaffold(topBar = { WhatsAppTopBar() }) { padding ->
       WhatsAppTabPager(
-        modifier = Modifier.padding(padding),
-        composeNavigator = composeNavigator
+        modifier = Modifier.padding(padding)
       )
     }
   }
@@ -47,9 +45,8 @@ fun NavGraphBuilder.whatsAppHomeNavigation(
     val channelId = it.arguments?.getString("channelId") ?: return@composable
     WhatsAppMessages(
       channelId = channelId,
-      composeNavigator = composeNavigator,
-      whatsAppMessagesViewModel = hiltViewModel()
-    )
+
+      )
   }
 
   composable(
@@ -61,7 +58,6 @@ fun NavGraphBuilder.whatsAppHomeNavigation(
 
     WhatsAppCallHistoryInfo(
       whatsAppUser = whatsAppUser,
-      composeNavigator = composeNavigator
-    )
+      )
   }
 }

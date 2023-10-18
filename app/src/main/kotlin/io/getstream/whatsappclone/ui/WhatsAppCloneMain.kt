@@ -37,8 +37,7 @@ fun WhatsAppCloneMain(
 
     WhatsAppCloneBackground {
       WhatsAppNavHost(
-        navHostController = navHostController,
-        composeNavigator = composeNavigator
+        navHostController = navHostController
       )
     }
   }

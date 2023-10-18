@@ -28,6 +28,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.skydoves.landscapist.glide.GlideImage
 import io.getstream.whatsappclone.designsystem.R
 import io.getstream.whatsappclone.designsystem.icon.WhatsAppIcons
@@ -40,7 +41,8 @@ import java.util.Date
 @Composable
 fun WhatsAppCallHistoryInfoBody(
   modifier: Modifier,
-  whatsAppUser: WhatsAppUser
+  whatsAppUser: WhatsAppUser,
+
 ) {
   ConstraintLayout(modifier = modifier.padding(12.dp)) {
     val (image, name, call, divider, location, date) = createRefs()

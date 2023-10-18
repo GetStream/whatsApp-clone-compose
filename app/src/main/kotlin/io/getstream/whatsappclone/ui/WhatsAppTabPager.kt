@@ -46,8 +46,7 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun WhatsAppTabPager(
-  modifier: Modifier = Modifier,
-  composeNavigator: AppComposeNavigator
+  modifier: Modifier = Modifier
 ) {
   val coroutineScope = rememberCoroutineScope()
   val pagerState = rememberPagerState()
@@ -110,8 +109,7 @@ fun WhatsAppTabPager(
       ) { page ->
 
         WhatsAppPagerContent(
-          page = page,
-          composeNavigator = composeNavigator
+          page = page
         )
       }
     }

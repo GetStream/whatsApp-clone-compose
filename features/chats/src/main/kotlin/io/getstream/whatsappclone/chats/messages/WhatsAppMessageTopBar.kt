@@ -29,29 +29,24 @@ import androidx.compose.material3.SmallTopAppBar
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.skydoves.landscapist.animation.crossfade.CrossfadePlugin
 import com.skydoves.landscapist.components.rememberImageComponent
 import com.skydoves.landscapist.glide.GlideImage
-import io.getstream.chat.android.client.ChatClient
 import io.getstream.whatsappclone.designsystem.component.WhatsAppLoadingIndicator
 import io.getstream.whatsappclone.designsystem.icon.WhatsAppIcons
 import io.getstream.whatsappclone.designsystem.theme.WhatsAppCloneComposeTheme
-import io.getstream.whatsappclone.navigation.AppComposeNavigator
-import io.getstream.whatsappclone.navigation.WhatsAppCloneComposeNavigator
 import io.getstream.whatsappclone.uistate.WhatsAppMessageUiState
 
 @Composable
 fun WhatsAppMessageTopBar(
-  viewModel: WhatsAppMessagesViewModel,
-  composeNavigator: AppComposeNavigator
+  messageUiState: WhatsAppMessageUiState,
+  onBackClick: () -> Unit
 ) {
-  val messageUiState by viewModel.messageUiSate.collectAsStateWithLifecycle()
+
 
   SmallTopAppBar(
     modifier = Modifier.fillMaxWidth(),
@@ -60,7 +55,7 @@ fun WhatsAppMessageTopBar(
         modifier = Modifier
           .size(26.dp)
           .clickable {
-            composeNavigator.navigateUp()
+            onBackClick()
           },
         imageVector = WhatsAppIcons.ArrowBack,
         tint = MaterialTheme.colorScheme.tertiary,
@@ -141,8 +136,8 @@ private fun WhatsAppMessageUserInfo(
 private fun WhatsAppTopBarPreview() {
   WhatsAppCloneComposeTheme {
     WhatsAppMessageTopBar(
-      WhatsAppMessagesViewModel(ChatClient.instance()),
-      WhatsAppCloneComposeNavigator()
+      messageUiState = WhatsAppMessageUiState.Loading,
+      onBackClick = {}
     )
   }
 }
@@ -152,8 +147,8 @@ private fun WhatsAppTopBarPreview() {
 private fun WhatsAppTopBarDarkPreview() {
   WhatsAppCloneComposeTheme(darkTheme = true) {
     WhatsAppMessageTopBar(
-      WhatsAppMessagesViewModel(ChatClient.instance()),
-      WhatsAppCloneComposeNavigator()
+      messageUiState = WhatsAppMessageUiState.Loading,
+      onBackClick = {}
     )
   }
 }

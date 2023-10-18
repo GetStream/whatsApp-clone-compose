@@ -20,30 +20,29 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import io.getstream.whatsappclone.designsystem.component.WhatsAppError
 import io.getstream.whatsappclone.designsystem.component.WhatsAppLoadingColumn
-import io.getstream.whatsappclone.navigation.AppComposeNavigator
-import io.getstream.whatsappclone.navigation.WhatsAppScreens
+import io.getstream.whatsappclone.model.WhatsAppUser
 import io.getstream.whatsappclone.uistate.WhatsAppUserUiState
 
 @Composable
 fun WhatsAppCalls(
-  composeNavigator: AppComposeNavigator,
-  whatsAppCallsViewModel: WhatsAppCallsViewModel
+  whatsAppCallsViewModel: WhatsAppCallsViewModel = hiltViewModel()
 ) {
   val whatsAppUsersUiState by whatsAppCallsViewModel.whatsAppUserState.collectAsStateWithLifecycle()
 
   WhatsAppCallsScreen(
-    composeNavigator = composeNavigator,
-    whatsAppUsersUiState = whatsAppUsersUiState
+    whatsAppUsersUiState = whatsAppUsersUiState,
+    onHistoryItemClick = whatsAppCallsViewModel::navigateToCallInfo
   )
 }
 
 @Composable
 private fun WhatsAppCallsScreen(
-  composeNavigator: AppComposeNavigator,
-  whatsAppUsersUiState: WhatsAppUserUiState
+  whatsAppUsersUiState: WhatsAppUserUiState,
+  onHistoryItemClick: (WhatsAppUser) -> Unit,
 ) {
   when (whatsAppUsersUiState) {
     WhatsAppUserUiState.Loading -> WhatsAppLoadingColumn()
@@ -55,7 +54,7 @@ private fun WhatsAppCallsScreen(
           key = { it.name }
         ) {
           WhatsAppCallHistory(whatsAppUser = it) {
-            composeNavigator.navigate(WhatsAppScreens.CallInfo.createRoute(whatsAppUser = it))
+            onHistoryItemClick(it)
           }
         }
       }

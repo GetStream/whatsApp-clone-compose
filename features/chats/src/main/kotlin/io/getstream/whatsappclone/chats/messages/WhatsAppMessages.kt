@@ -19,36 +19,27 @@ package io.getstream.whatsappclone.chats.messages
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import io.getstream.chat.android.compose.ui.messages.MessagesScreen
 import io.getstream.whatsappclone.chats.theme.WhatsAppChatTheme
-import io.getstream.whatsappclone.navigation.AppComposeNavigator
 
 @Composable
 fun WhatsAppMessages(
-  channelId: String,
-  composeNavigator: AppComposeNavigator,
-  whatsAppMessagesViewModel: WhatsAppMessagesViewModel
+  channelId: String, whatsAppMessagesViewModel: WhatsAppMessagesViewModel = hiltViewModel()
 ) {
-  LaunchedEffect(key1 = channelId) {
-    whatsAppMessagesViewModel.handleEvents(
-      WhatsAppMessageEvent.FetchChannel(channelId)
-    )
-  }
+  val messageUiState by whatsAppMessagesViewModel.messageUiSate.collectAsStateWithLifecycle()
 
   WhatsAppChatTheme {
     Column(Modifier.fillMaxSize()) {
-      WhatsAppMessageTopBar(
-        viewModel = whatsAppMessagesViewModel,
-        composeNavigator = composeNavigator
-      )
+      WhatsAppMessageTopBar(messageUiState = messageUiState,
+        onBackClick = { whatsAppMessagesViewModel.handleEvents(WhatsAppMessageEvent.NavigateUp) })
 
-      MessagesScreen(
-        channelId = channelId,
+      MessagesScreen(channelId = channelId,
         showHeader = false,
-        onBackPressed = { composeNavigator.navigateUp() }
-      )
+        onBackPressed = { whatsAppMessagesViewModel.handleEvents(WhatsAppMessageEvent.NavigateUp) })
     }
   }
 }
