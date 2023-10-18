@@ -64,8 +64,6 @@ class WhatsAppMessagesViewModel @Inject constructor(
       }
     }
   }
-
-
 }
 
 sealed interface WhatsAppMessageEvent {

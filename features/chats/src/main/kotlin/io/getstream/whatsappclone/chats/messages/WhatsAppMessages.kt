@@ -28,18 +28,23 @@ import io.getstream.whatsappclone.chats.theme.WhatsAppChatTheme
 
 @Composable
 fun WhatsAppMessages(
-  channelId: String, whatsAppMessagesViewModel: WhatsAppMessagesViewModel = hiltViewModel()
+  channelId: String,
+  whatsAppMessagesViewModel: WhatsAppMessagesViewModel = hiltViewModel()
 ) {
   val messageUiState by whatsAppMessagesViewModel.messageUiSate.collectAsStateWithLifecycle()
 
   WhatsAppChatTheme {
     Column(Modifier.fillMaxSize()) {
-      WhatsAppMessageTopBar(messageUiState = messageUiState,
-        onBackClick = { whatsAppMessagesViewModel.handleEvents(WhatsAppMessageEvent.NavigateUp) })
+      WhatsAppMessageTopBar(
+        messageUiState = messageUiState,
+        onBackClick = { whatsAppMessagesViewModel.handleEvents(WhatsAppMessageEvent.NavigateUp) }
+      )
 
-      MessagesScreen(channelId = channelId,
+      MessagesScreen(
+        channelId = channelId,
         showHeader = false,
-        onBackPressed = { whatsAppMessagesViewModel.handleEvents(WhatsAppMessageEvent.NavigateUp) })
+        onBackPressed = { whatsAppMessagesViewModel.handleEvents(WhatsAppMessageEvent.NavigateUp) }
+      )
     }
   }
 }

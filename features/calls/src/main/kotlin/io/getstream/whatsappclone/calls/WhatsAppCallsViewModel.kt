@@ -26,11 +26,11 @@ import io.getstream.whatsappclone.navigation.AppComposeNavigator
 import io.getstream.whatsappclone.navigation.WhatsAppScreens
 import io.getstream.whatsappclone.uistate.WhatsAppUserExtensive
 import io.getstream.whatsappclone.uistate.WhatsAppUserUiState
+import javax.inject.Inject
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.stateIn
-import javax.inject.Inject
 
 @HiltViewModel
 class WhatsAppCallsViewModel @Inject constructor(

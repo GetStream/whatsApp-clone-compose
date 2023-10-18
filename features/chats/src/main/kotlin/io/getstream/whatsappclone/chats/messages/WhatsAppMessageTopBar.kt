@@ -46,8 +46,6 @@ fun WhatsAppMessageTopBar(
   messageUiState: WhatsAppMessageUiState,
   onBackClick: () -> Unit
 ) {
-
-
   SmallTopAppBar(
     modifier = Modifier.fillMaxWidth(),
     navigationIcon = {

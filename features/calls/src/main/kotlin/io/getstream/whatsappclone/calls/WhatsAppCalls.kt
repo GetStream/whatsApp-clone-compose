@@ -42,7 +42,7 @@ fun WhatsAppCalls(
 @Composable
 private fun WhatsAppCallsScreen(
   whatsAppUsersUiState: WhatsAppUserUiState,
-  onHistoryItemClick: (WhatsAppUser) -> Unit,
+  onHistoryItemClick: (WhatsAppUser) -> Unit
 ) {
   when (whatsAppUsersUiState) {
     WhatsAppUserUiState.Loading -> WhatsAppLoadingColumn()

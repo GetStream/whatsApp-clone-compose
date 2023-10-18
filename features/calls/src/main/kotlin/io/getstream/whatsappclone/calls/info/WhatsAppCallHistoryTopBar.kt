@@ -32,8 +32,6 @@ import androidx.compose.ui.unit.dp
 import io.getstream.whatsappclone.calls.R
 import io.getstream.whatsappclone.designsystem.icon.WhatsAppIcons
 import io.getstream.whatsappclone.designsystem.theme.WhatsAppCloneComposeTheme
-import io.getstream.whatsappclone.navigation.AppComposeNavigator
-import io.getstream.whatsappclone.navigation.WhatsAppCloneComposeNavigator
 
 @Composable
 fun WhatsAppCallHistoryTopBar(
@@ -44,10 +42,10 @@ fun WhatsAppCallHistoryTopBar(
     navigationIcon = {
       Icon(
         modifier = Modifier
-            .size(26.dp)
-            .clickable {
-                onBackClick()
-            },
+          .size(26.dp)
+          .clickable {
+            onBackClick()
+          },
         imageVector = WhatsAppIcons.ArrowBack,
         tint = MaterialTheme.colorScheme.tertiary,
         contentDescription = null
@@ -93,7 +91,8 @@ private fun WhatsAppCallHistoryTopBarPreview() {
 @Composable
 private fun WhatsAppCallHistoryTopBarDarkPreview() {
   WhatsAppCloneComposeTheme(darkTheme = true) {
-    WhatsAppCallHistoryTopBar(onBackClick = {}
+    WhatsAppCallHistoryTopBar(
+      onBackClick = {}
     )
   }
 }

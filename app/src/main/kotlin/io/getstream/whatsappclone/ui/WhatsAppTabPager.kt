@@ -38,7 +38,6 @@ import io.getstream.whatsappclone.designsystem.component.WhatsAppCloneBackground
 import io.getstream.whatsappclone.designsystem.icon.WhatsAppIcons
 import io.getstream.whatsappclone.designsystem.theme.WHITE200
 import io.getstream.whatsappclone.designsystem.theme.getTabPrimaryColor
-import io.getstream.whatsappclone.navigation.AppComposeNavigator
 import io.getstream.whatsappclone.navigation.TOP_LEVEL_DESTINATIONS
 import io.getstream.whatsappclone.navigation.WhatsAppPage
 import io.getstream.whatsappclone.navigation.WhatsAppPagerContent
