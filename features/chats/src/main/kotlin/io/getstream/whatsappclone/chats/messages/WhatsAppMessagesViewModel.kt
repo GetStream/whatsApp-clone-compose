@@ -16,12 +16,14 @@
 
 package io.getstream.whatsappclone.chats.messages
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.getstream.chat.android.client.ChatClient
 import io.getstream.chat.android.client.utils.onError
 import io.getstream.chat.android.client.utils.onSuccess
+import io.getstream.whatsappclone.navigation.AppComposeNavigator
 import io.getstream.whatsappclone.uistate.WhatsAppMessageUiState
 import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -30,15 +32,25 @@ import kotlinx.coroutines.launch
 
 @HiltViewModel
 class WhatsAppMessagesViewModel @Inject constructor(
-  private val chatClient: ChatClient
+  private val chatClient: ChatClient,
+  private val composeNavigator: AppComposeNavigator,
+  savedStateHandle: SavedStateHandle
 ) : ViewModel() {
   private val messageMutableUiState =
     MutableStateFlow<WhatsAppMessageUiState>(WhatsAppMessageUiState.Loading)
   val messageUiSate: StateFlow<WhatsAppMessageUiState> = messageMutableUiState
 
+  private val channelId = savedStateHandle.get<String>("channelId")
+
+  init {
+    if (channelId != null) {
+      fetchChannel(channelId = channelId)
+    }
+  }
+
   fun handleEvents(whatsAppMessageEvent: WhatsAppMessageEvent) {
     when (whatsAppMessageEvent) {
-      is WhatsAppMessageEvent.FetchChannel -> fetchChannel(whatsAppMessageEvent.channelId)
+      is WhatsAppMessageEvent.NavigateUp -> composeNavigator.navigateUp()
     }
   }
 
@@ -55,5 +67,5 @@ class WhatsAppMessagesViewModel @Inject constructor(
 }
 
 sealed interface WhatsAppMessageEvent {
-  class FetchChannel(val channelId: String) : WhatsAppMessageEvent
+  data object NavigateUp : WhatsAppMessageEvent
 }
