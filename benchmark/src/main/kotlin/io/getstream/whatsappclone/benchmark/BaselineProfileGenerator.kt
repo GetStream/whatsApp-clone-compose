@@ -16,7 +16,8 @@
 
 package io.getstream.whatsappclone.benchmark
 
-import androidx.benchmark.macro.ExperimentalBaselineProfilesApi
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.benchmark.macro.junit4.BaselineProfileRule
 import org.junit.Rule
 import org.junit.Test
@@ -24,14 +25,14 @@ import org.junit.Test
 /**
  * Generates a baseline profile which can be copied to `app/src/main/baseline-prof.txt`.
  */
-@ExperimentalBaselineProfilesApi
+@RequiresApi(Build.VERSION_CODES.P)
 class BaselineProfileGenerator {
   @get:Rule
   val baselineProfileRule = BaselineProfileRule()
 
   @Test
   fun startup() =
-    baselineProfileRule.collectBaselineProfile(
+    baselineProfileRule.collect(
       packageName = "io.getstream.whatsappclone"
     ) {
       pressHome()
