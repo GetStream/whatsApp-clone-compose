@@ -77,7 +77,7 @@ fun WhatsAppCallHistoryTopBar(
         contentDescription = null
       )
     },
-    contentColor = MaterialTheme.colorScheme.primary
+    backgroundColor = MaterialTheme.colorScheme.primary
   )
 }
 
