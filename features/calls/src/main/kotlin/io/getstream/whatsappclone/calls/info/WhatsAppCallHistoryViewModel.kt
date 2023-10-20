@@ -14,20 +14,19 @@
  * limitations under the License.
  */
 
-package io.getstream.whatsappclone.navigation
+package io.getstream.whatsappclone.calls.info
 
-import androidx.compose.runtime.Composable
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
+import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import io.getstream.whatsappclone.navigation.AppComposeNavigator
+import javax.inject.Inject
 
-@Composable
-fun WhatsAppNavHost(
-  navHostController: NavHostController
-) {
-  NavHost(
-    navController = navHostController,
-    startDestination = WhatsAppScreens.Home.route
-  ) {
-    whatsAppHomeNavigation()
+@HiltViewModel
+class WhatsAppCallHistoryViewModel @Inject constructor(
+  private val composeNavigator: AppComposeNavigator
+) : ViewModel() {
+
+  fun navigateUp() {
+    composeNavigator.navigateUp()
   }
 }

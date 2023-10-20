@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package io.getstream.whatsappclone.chats
+package io.getstream.whatsappclone.chats.channels
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -28,23 +28,22 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import io.getstream.chat.android.compose.ui.channels.ChannelsScreen
 import io.getstream.whatsappclone.chats.theme.WhatsAppChatTheme
 import io.getstream.whatsappclone.designsystem.icon.WhatsAppIcons
 import io.getstream.whatsappclone.designsystem.theme.GREEN500
-import io.getstream.whatsappclone.navigation.AppComposeNavigator
-import io.getstream.whatsappclone.navigation.WhatsAppScreens
 
 @Composable
 fun WhatsAppChannels(
-  composeNavigator: AppComposeNavigator
+  whatsChannelsViewModel: WhatsChannelsViewModel = hiltViewModel()
 ) {
   WhatsAppChatTheme {
     Box(modifier = Modifier.fillMaxSize()) {
       ChannelsScreen(
         isShowingHeader = false,
         onItemClick = { channel ->
-          composeNavigator.navigate(WhatsAppScreens.Messages.createRoute(channel.cid))
+          whatsChannelsViewModel.navigateToMessages(channel.cid)
         }
       )
 
