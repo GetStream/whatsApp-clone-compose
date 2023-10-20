@@ -35,6 +35,6 @@ import io.getstream.chat.android.client.models.Channel
 @Immutable
 sealed interface UiState {
   data class Success(val data: Extensive) : UiState
-  object Loading : UiState
-  object Error : UiState
+  data object Loading : UiState
+  data object Error : UiState
 }

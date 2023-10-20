@@ -46,7 +46,6 @@ android {
   }
 
   targetProjectPath = ":app"
-  experimentalProperties["android.experimental.self-instrumenting"] = true
 }
 
 dependencies {
@@ -54,10 +53,4 @@ dependencies {
   implementation(libs.androidx.test.uiautomator)
   implementation(libs.androidx.benchmark.macro)
   implementation(libs.androidx.profileinstaller)
-}
-
-androidComponents {
-  beforeVariants(selector().all()) {
-    it.enabled = it.buildType == "benchmark"
-  }
 }
