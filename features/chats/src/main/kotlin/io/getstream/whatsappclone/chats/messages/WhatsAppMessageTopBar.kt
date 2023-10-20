@@ -45,8 +45,6 @@ fun WhatsAppMessageTopBar(
   messageUiState: WhatsAppMessageUiState,
   onBackClick: () -> Unit
 ) {
-  val messageUiState by viewModel.messageUiSate.collectAsStateWithLifecycle()
-
   TopAppBar(
     modifier = Modifier.fillMaxWidth(),
     navigationIcon = {
