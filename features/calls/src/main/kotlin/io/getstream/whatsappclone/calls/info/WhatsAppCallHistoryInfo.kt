@@ -21,17 +21,17 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import io.getstream.whatsappclone.model.WhatsAppUser
-import io.getstream.whatsappclone.navigation.AppComposeNavigator
 
 @Composable
 fun WhatsAppCallHistoryInfo(
   whatsAppUser: WhatsAppUser,
-  composeNavigator: AppComposeNavigator
+  whatsAppCallHistoryViewModel: WhatsAppCallHistoryViewModel = hiltViewModel()
 ) {
   Scaffold(
     modifier = Modifier.fillMaxSize(),
-    topBar = { WhatsAppCallHistoryTopBar(composeNavigator = composeNavigator) }
+    topBar = { WhatsAppCallHistoryTopBar(onBackClick = whatsAppCallHistoryViewModel::navigateUp) }
   ) {
     WhatsAppCallHistoryInfoBody(
       modifier = Modifier.padding(it),

@@ -41,6 +41,7 @@ import java.util.Date
 fun WhatsAppCallHistoryInfoBody(
   modifier: Modifier,
   whatsAppUser: WhatsAppUser
+
 ) {
   ConstraintLayout(modifier = modifier.padding(12.dp)) {
     val (image, name, call, divider, location, date) = createRefs()
