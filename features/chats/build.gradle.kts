@@ -32,7 +32,7 @@ dependencies {
   implementation(project(":core:data"))
 
   // Stream chat Compose
-  api(libs.stream.compose)
+  api(libs.stream.chat.compose)
 
   implementation(libs.androidx.lifecycle.runtimeCompose)
   implementation(libs.androidx.lifecycle.viewModelCompose)

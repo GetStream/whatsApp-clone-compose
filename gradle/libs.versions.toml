@@ -1,5 +1,6 @@
 [versions]
 streamChatSDK = "5.17.10"
+streamVideoSDK = "0.3.4"
 streamLog = "1.1.4"
 sealedx = "1.0.1"
 landscapist = "2.2.10"
@@ -42,8 +43,9 @@ spotless = "6.7.0"
 turbine = "1.0.0"
 
 [libraries]
-stream-client = { group = "io.getstream", name = "stream-chat-android-client", version.ref = "streamChatSDK" }
-stream-compose = { group = "io.getstream", name = "stream-chat-android-compose", version.ref = "streamChatSDK" }
+stream-chat-client = { group = "io.getstream", name = "stream-chat-android-client", version.ref = "streamChatSDK" }
+stream-chat-compose = { group = "io.getstream", name = "stream-chat-android-compose", version.ref = "streamChatSDK" }
+stream-video-compose = { group = "io.getstream", name = "stream-video-android-compose", version.ref = "streamVideoSDK" }
 stream-log = { group = "io.getstream", name = "stream-log-android", version.ref = "streamLog" }
 sealedx-core = { group = "com.github.skydoves", name = "sealedx-core", version.ref = "sealedx" }
 sealedx-processor = { group = "com.github.skydoves", name = "sealedx-processor", version.ref = "sealedx" }
