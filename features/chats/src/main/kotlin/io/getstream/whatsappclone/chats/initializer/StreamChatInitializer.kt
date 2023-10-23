@@ -26,7 +26,6 @@ import io.getstream.chat.android.offline.plugin.configuration.Config
 import io.getstream.chat.android.offline.plugin.factory.StreamOfflinePluginFactory
 import io.getstream.log.streamLog
 import io.getstream.whatsappclone.chats.BuildConfig
-import io.getstream.whatsappclone.chats.R
 
 /**
  * StreamChatInitializer initializes all Stream Client components.
@@ -51,7 +50,7 @@ class StreamChatInitializer : Initializer<Unit> {
       ),
       appContext = context
     )
-    val chatClient = ChatClient.Builder(context.getString(R.string.stream_api_key), context)
+    val chatClient = ChatClient.Builder(BuildConfig.STREAM_API_KEY, context)
       .withPlugin(offlinePluginFactory)
       .logLevel(logLevel)
       .build()

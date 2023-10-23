@@ -21,6 +21,7 @@ import com.skydoves.sealedx.core.Extensive
 import com.skydoves.sealedx.core.annotations.ExtensiveModel
 import com.skydoves.sealedx.core.annotations.ExtensiveSealed
 import io.getstream.chat.android.client.models.Channel
+import io.getstream.video.android.core.Call
 
 /**
  * Generates restartable and skippable UI states based on KSP and extensive models.
@@ -29,11 +30,13 @@ import io.getstream.chat.android.client.models.Channel
 @ExtensiveSealed(
   models = [
     ExtensiveModel(type = Channel::class, name = "WhatsAppMessage"),
-    ExtensiveModel(type = WhatsAppUserExtensive::class, name = "WhatsAppUser")
+    ExtensiveModel(type = WhatsAppUserExtensive::class, name = "WhatsAppUser"),
+    ExtensiveModel(type = Call::class, name = "WhatsAppVideo")
   ]
 )
 @Immutable
 sealed interface UiState {
+
   data class Success(val data: Extensive) : UiState
   data object Loading : UiState
   data object Error : UiState

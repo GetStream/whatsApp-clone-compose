@@ -25,7 +25,9 @@ android {
 }
 
 dependencies {
-  api(libs.stream.client)
+  api(libs.stream.chat.client)
+  api(libs.stream.video.core)
+
   api(libs.retrofit.kotlin.serialization)
   api(libs.kotlinx.serialization.json)
   compileOnly(libs.compose.stable.marker)

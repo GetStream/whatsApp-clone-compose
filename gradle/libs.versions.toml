@@ -1,5 +1,6 @@
 [versions]
 streamChatSDK = "5.17.10"
+streamVideoSDK = "0.3.4"
 streamLog = "1.1.4"
 sealedx = "1.0.1"
 landscapist = "2.2.10"
@@ -38,12 +39,15 @@ okhttp = "4.12.0"
 retrofit = "2.9.0"
 retrofitResultAdapter = "1.0.9"
 retrofitKotlinxSerializationJson = "1.0.0"
+googleSecretPlugin = "2.0.1"
 spotless = "6.7.0"
 turbine = "1.0.0"
 
 [libraries]
-stream-client = { group = "io.getstream", name = "stream-chat-android-client", version.ref = "streamChatSDK" }
-stream-compose = { group = "io.getstream", name = "stream-chat-android-compose", version.ref = "streamChatSDK" }
+stream-chat-client = { group = "io.getstream", name = "stream-chat-android-client", version.ref = "streamChatSDK" }
+stream-chat-compose = { group = "io.getstream", name = "stream-chat-android-compose", version.ref = "streamChatSDK" }
+stream-video-core = { group = "io.getstream", name = "stream-video-android-core", version.ref = "streamVideoSDK" }
+stream-video-compose = { group = "io.getstream", name = "stream-video-android-compose", version.ref = "streamVideoSDK" }
 stream-log = { group = "io.getstream", name = "stream-log-android", version.ref = "streamLog" }
 sealedx-core = { group = "com.github.skydoves", name = "sealedx-core", version.ref = "sealedx" }
 sealedx-processor = { group = "com.github.skydoves", name = "sealedx-processor", version.ref = "sealedx" }
@@ -104,5 +108,7 @@ android-test = { id = "com.android.test", version.ref = "androidGradlePlugin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
+google-secrets = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "googleSecretPlugin" }

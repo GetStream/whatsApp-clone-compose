@@ -36,6 +36,7 @@ fun WhatsAppMessages(
   WhatsAppChatTheme {
     Column(Modifier.fillMaxSize()) {
       WhatsAppMessageTopBar(
+        channelId = channelId,
         messageUiState = messageUiState,
         onBackClick = { whatsAppMessagesViewModel.handleEvents(WhatsAppMessageEvent.NavigateUp) }
       )

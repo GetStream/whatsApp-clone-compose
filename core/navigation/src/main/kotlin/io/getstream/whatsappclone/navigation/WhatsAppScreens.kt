@@ -24,16 +24,15 @@ import io.getstream.whatsappclone.navigation.navtypes.WhatsAppUserType
 
 sealed class WhatsAppScreens(
   val route: String,
-  val index: Int? = null,
   val navArguments: List<NamedNavArgument> = emptyList()
 ) {
   val name: String = route.appendArguments(navArguments)
 
   // home screen
-  object Home : WhatsAppScreens("home")
+  data object Home : WhatsAppScreens("home")
 
   // message screen
-  object Messages : WhatsAppScreens(
+  data object Messages : WhatsAppScreens(
     route = "messages",
     navArguments = listOf(navArgument("channelId") { type = NavType.StringType })
   ) {
@@ -42,7 +41,7 @@ sealed class WhatsAppScreens(
   }
 
   // call info screen
-  object CallInfo : WhatsAppScreens(
+  data object CallInfo : WhatsAppScreens(
     route = "call_info",
     navArguments = listOf(
       navArgument("user") {
@@ -54,6 +53,22 @@ sealed class WhatsAppScreens(
     const val KEY_USER = "user"
     fun createRoute(whatsAppUser: WhatsAppUser) =
       name.replace("{${navArguments.first().name}}", WhatsAppUserType.encodeToString(whatsAppUser))
+  }
+
+  // video call screen
+  data object VideoCall : WhatsAppScreens(
+    route = "video_call",
+    navArguments = listOf(
+      navArgument("call_id") {
+        type = NavType.StringType
+        nullable = false
+      }
+    )
+  ) {
+    const val KEY_CALL_ID = "call_id"
+
+    fun createRoute(callId: String) =
+      name.replace("{${navArguments.first().name}}", callId)
   }
 }
 

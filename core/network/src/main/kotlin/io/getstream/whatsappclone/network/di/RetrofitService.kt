@@ -14,17 +14,20 @@
  * limitations under the License.
  */
 
-package io.getstream.whatsappclone.designsystem.component
+package io.getstream.whatsappclone.network.di
 
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import io.getstream.whatsappclone.designsystem.theme.GREEN450
+import javax.inject.Qualifier
 
-@Composable
-fun WhatsAppLoadingIndicator(modifier: Modifier = Modifier) {
-  CircularProgressIndicator(
-    modifier = modifier,
-    color = GREEN450
+@Qualifier
+@Retention(AnnotationRetention.RUNTIME)
+annotation class RetrofitService(val baseService: BaseService)
+
+enum class BaseService(val baseUrl: String) {
+  WhatsApp(
+    baseUrl = "https://gist.githubusercontent.com/skydoves/44140b10c3b1057b8ac00e2a59eaaa86/raw/" +
+      "0ca2cdbb34c7eaf365130c75969a29d4e33bd2fc/"
+  ),
+  StreamVideo(
+    baseUrl = "https://stream-calls-dogfood.vercel.app/"
   )
 }

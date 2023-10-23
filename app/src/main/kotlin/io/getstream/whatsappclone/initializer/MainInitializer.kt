@@ -14,17 +14,22 @@
  * limitations under the License.
  */
 
-package io.getstream.whatsappclone.designsystem.component
+package io.getstream.whatsappclone.initializer
 
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import io.getstream.whatsappclone.designsystem.theme.GREEN450
+import android.content.Context
+import androidx.startup.Initializer
+import io.getstream.whatsappclone.chats.initializer.StreamChatInitializer
+import io.getstream.whatsappclone.chats.initializer.StreamLogInitializer
+import io.getstream.whatsappclone.video.initializer.StreamVideoInitializer
 
-@Composable
-fun WhatsAppLoadingIndicator(modifier: Modifier = Modifier) {
-  CircularProgressIndicator(
-    modifier = modifier,
-    color = GREEN450
+class MainInitializer : Initializer<Unit> {
+
+  override fun create(context: Context) {
+  }
+
+  override fun dependencies(): List<Class<out Initializer<*>>> = listOf(
+    StreamLogInitializer::class.java,
+    StreamChatInitializer::class.java,
+    StreamVideoInitializer::class.java
   )
 }

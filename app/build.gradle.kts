@@ -24,7 +24,6 @@ plugins {
 
 android {
   namespace = "io.getstream.whatsappclone"
-  compileSdk = Configurations.compileSdk
 
   defaultConfig {
     applicationId = "io.getstream.whatsappclone"
@@ -60,6 +59,7 @@ dependencies {
   implementation(project(":features:chats"))
   implementation(project(":features:status"))
   implementation(project(":features:calls"))
+  implementation(project(":features:video"))
 
   // material
   implementation(libs.androidx.appcompat)

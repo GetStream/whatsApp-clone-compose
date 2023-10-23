@@ -14,17 +14,9 @@
  * limitations under the License.
  */
 
-package io.getstream.whatsappclone.designsystem.component
+package io.getstream.whatsappclone.model
 
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import io.getstream.whatsappclone.designsystem.theme.GREEN450
+import kotlinx.serialization.Serializable
 
-@Composable
-fun WhatsAppLoadingIndicator(modifier: Modifier = Modifier) {
-  CircularProgressIndicator(
-    modifier = modifier,
-    color = GREEN450
-  )
-}
+@Serializable
+data class TokenResponse(val userId: String, val token: String)

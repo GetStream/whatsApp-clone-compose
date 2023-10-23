@@ -23,7 +23,7 @@ plugins {
 }
 
 android {
-  namespace = "io.getstream.whatsappclone.chats"
+    namespace = "io.getstream.whatsappclone.video"
 }
 
 secrets {
@@ -39,8 +39,7 @@ dependencies {
   implementation(project(":core:network"))
   implementation(project(":core:data"))
 
-  // Stream Chat Compose
-  api(libs.stream.chat.compose)
+  implementation(libs.stream.video.compose)
 
   implementation(libs.androidx.lifecycle.runtimeCompose)
   implementation(libs.androidx.lifecycle.viewModelCompose)

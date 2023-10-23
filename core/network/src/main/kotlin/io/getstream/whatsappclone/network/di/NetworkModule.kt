@@ -24,6 +24,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import io.getstream.whatsappclone.network.service.StreamVideoTokenService
 import io.getstream.whatsappclone.network.service.WhatsAppUserService
 import javax.inject.Singleton
 import kotlinx.serialization.ExperimentalSerializationApi
@@ -44,12 +45,10 @@ internal object NetworkModule {
 
   @Provides
   @Singleton
-  fun provideRetrofit(networkJson: Json): Retrofit {
+  @RetrofitService(BaseService.WhatsApp)
+  fun provideWhatsAppRetrofit(networkJson: Json): Retrofit {
     return Retrofit.Builder()
-      .baseUrl(
-        "https://gist.githubusercontent.com/skydoves/44140b10c3b1057b8ac00e2a59eaaa86/raw/" +
-          "0ca2cdbb34c7eaf365130c75969a29d4e33bd2fc/"
-      )
+      .baseUrl(BaseService.WhatsApp.baseUrl)
       .addConverterFactory(networkJson.asConverterFactory("application/json".toMediaType()))
       .addCallAdapterFactory(ResultCallAdapterFactory.create())
       .build()
@@ -57,7 +56,28 @@ internal object NetworkModule {
 
   @Provides
   @Singleton
-  fun provideWhatsAppUerService(retrofit: Retrofit): WhatsAppUserService {
+  fun provideWhatsAppUerService(
+    @RetrofitService(BaseService.WhatsApp) retrofit: Retrofit
+  ): WhatsAppUserService {
+    return retrofit.create()
+  }
+
+  @Provides
+  @Singleton
+  @RetrofitService(BaseService.StreamVideo)
+  fun provideStreamVideoRetrofit(networkJson: Json): Retrofit {
+    return Retrofit.Builder()
+      .baseUrl(BaseService.StreamVideo.baseUrl)
+      .addConverterFactory(networkJson.asConverterFactory("application/json".toMediaType()))
+      .addCallAdapterFactory(ResultCallAdapterFactory.create())
+      .build()
+  }
+
+  @Provides
+  @Singleton
+  fun provideStreamVideoTokenService(
+    @RetrofitService(BaseService.StreamVideo) retrofit: Retrofit
+  ): StreamVideoTokenService {
     return retrofit.create()
   }
 }

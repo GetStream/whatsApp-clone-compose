@@ -21,7 +21,7 @@ plugins {
 
 android {
   namespace = "io.getstream.whatsappclone.benchmark"
-  compileSdk = Configurations.compileSdk
+  compileSdk = 34
 
   compileOptions {
     sourceCompatibility = JavaVersion.VERSION_17
