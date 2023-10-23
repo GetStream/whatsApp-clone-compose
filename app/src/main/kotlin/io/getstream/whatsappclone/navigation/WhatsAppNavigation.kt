@@ -58,4 +58,13 @@ fun NavGraphBuilder.whatsAppHomeNavigation() {
       whatsAppUser = whatsAppUser
     )
   }
+
+  composable(
+    route = WhatsAppScreens.VideoCall.name,
+    arguments = WhatsAppScreens.VideoCall.navArguments
+  ) {
+    val callId = it.arguments?.getString(WhatsAppScreens.VideoCall.KEY_CALL_ID)
+
+    // TODO
+  }
 }

@@ -30,9 +30,6 @@ dependencies {
   implementation(project(":core:uistate"))
   implementation(project(":core:data"))
 
-  // stream Video SDK
-  implementation(libs.stream.video.compose)
-
   implementation(libs.androidx.lifecycle.runtimeCompose)
   implementation(libs.androidx.lifecycle.viewModelCompose)
   implementation(libs.stream.log)
