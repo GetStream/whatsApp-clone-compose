@@ -1,5 +1,4 @@
 @file:Suppress("UnstableApiUsage")
-
 pluginManagement {
   includeBuild("build-logic")
   repositories {
@@ -30,4 +29,5 @@ include(":features:camera")
 include(":features:chats")
 include(":features:status")
 include(":features:calls")
+include(":features:video")
 include(":benchmark")
