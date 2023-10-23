@@ -46,6 +46,7 @@ turbine = "1.0.0"
 [libraries]
 stream-chat-client = { group = "io.getstream", name = "stream-chat-android-client", version.ref = "streamChatSDK" }
 stream-chat-compose = { group = "io.getstream", name = "stream-chat-android-compose", version.ref = "streamChatSDK" }
+stream-video-core = { group = "io.getstream", name = "stream-video-android-core", version.ref = "streamVideoSDK" }
 stream-video-compose = { group = "io.getstream", name = "stream-video-android-compose", version.ref = "streamVideoSDK" }
 stream-log = { group = "io.getstream", name = "stream-log-android", version.ref = "streamLog" }
 sealedx-core = { group = "com.github.skydoves", name = "sealedx-core", version.ref = "sealedx" }

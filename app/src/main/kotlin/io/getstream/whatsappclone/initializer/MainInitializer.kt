@@ -19,6 +19,7 @@ package io.getstream.whatsappclone.initializer
 import android.content.Context
 import androidx.startup.Initializer
 import io.getstream.whatsappclone.chats.initializer.StreamChatInitializer
+import io.getstream.whatsappclone.chats.initializer.StreamLogInitializer
 import io.getstream.whatsappclone.video.initializer.StreamVideoInitializer
 
 class MainInitializer : Initializer<Unit> {
@@ -27,6 +28,7 @@ class MainInitializer : Initializer<Unit> {
   }
 
   override fun dependencies(): List<Class<out Initializer<*>>> = listOf(
+    StreamLogInitializer::class.java,
     StreamChatInitializer::class.java,
     StreamVideoInitializer::class.java
   )

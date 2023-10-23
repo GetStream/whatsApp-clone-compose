@@ -16,54 +16,70 @@
 
 package io.getstream.whatsappclone.video
 
-import android.widget.Toast
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import io.getstream.video.android.compose.theme.VideoTheme
+import io.getstream.video.android.compose.ui.components.call.activecall.CallContent
 import io.getstream.video.android.core.Call
-import io.getstream.video.android.core.GEO
-import io.getstream.video.android.core.StreamVideoBuilder
-import io.getstream.video.android.model.User
+import io.getstream.whatsappclone.designsystem.component.WhatsAppLoadingIndicator
+import io.getstream.whatsappclone.uistate.WhatsAppVideoUiState
 
 @Composable
-fun WhatsAppVideoCall(id: String) {
-  val context = LocalContext.current
+fun WhatsAppVideoCall(
+  id: String,
+  viewModel: WhatsAppVideoCallViewModel = hiltViewModel()
+) {
+  val uiState by viewModel.videoUiSate.collectAsStateWithLifecycle()
 
-  var call: Call? by remember { mutableStateOf(null) }
+  LaunchedEffect(key1 = id) {
+    viewModel.joinCall(type = "default", id = id)
+  }
 
-  LaunchedEffect(key1 = Unit) {
-    val userToken = ""
-    val userId = "Ben_Skywalker"
-    val callId = "dE8AsD5Qxqrt"
+  when (uiState) {
+    is WhatsAppVideoUiState.Success ->
+      WhatsAppVideoCallContent(call = (uiState as WhatsAppVideoUiState.Success).data)
 
-    // step1 - create a user.
-    val user = User(
-      id = userId, // any string
-      name = "Tutorial", // name and image are used in the UI
-      role = "admin"
+    is WhatsAppVideoUiState.Error -> WhatsAppVideoCallError()
+
+    else -> WhatsAppVideoLoading()
+  }
+}
+
+@Composable
+fun WhatsAppVideoCallContent(
+  call: Call
+) {
+  VideoTheme {
+    CallContent(call = call)
+  }
+}
+
+@Composable
+fun WhatsAppVideoCallError() {
+  Box(modifier = Modifier.fillMaxSize()) {
+    Text(
+      modifier = Modifier.align(Alignment.Center),
+      text = "Something went wrong; failed to join a call",
+      fontSize = 14.sp,
+      style = MaterialTheme.typography.bodyMedium,
+      color = MaterialTheme.colorScheme.onTertiary
     )
+  }
+}
 
-    // step2 - initialize StreamVideo. For a production app we recommend adding the client to your Application class or di module.
-    val client = StreamVideoBuilder(
-      context = context,
-      apiKey = BuildConfig.STREAM_API_KEY,
-      geo = GEO.GlobalEdgeNetwork,
-      user = user,
-      token = userToken,
-      ensureSingleInstance = false
-    ).build()
-
-    // step3 - join a call, which type is `default` and id is `123`.
-    call = client.call("livestream", callId)
-
-    // join the cal
-    val result = call?.join()
-    result?.onError {
-      Toast.makeText(context, "uh oh $it", Toast.LENGTH_SHORT).show()
-    }
+@Composable
+fun WhatsAppVideoLoading() {
+  Box(modifier = Modifier.fillMaxSize()) {
+    WhatsAppLoadingIndicator(modifier = Modifier.align(Alignment.Center))
   }
 }

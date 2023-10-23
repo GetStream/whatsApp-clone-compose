@@ -17,47 +17,30 @@
 package io.getstream.whatsappclone.video.initializer
 
 import android.content.Context
+import android.util.Base64
 import androidx.startup.Initializer
 import io.getstream.video.android.core.StreamVideoBuilder
 import io.getstream.video.android.model.User
-import io.getstream.whatsappclone.network.Dispatcher
-import io.getstream.whatsappclone.network.WhatsAppDispatchers
-import io.getstream.whatsappclone.network.service.StreamVideoTokenService
 import io.getstream.whatsappclone.video.BuildConfig
-import javax.inject.Inject
-import kotlinx.coroutines.CoroutineDispatcher
+import java.nio.charset.StandardCharsets
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class StreamVideoInitializer : Initializer<Unit> {
 
-  @Inject
-  lateinit var streamVideoTokenService: StreamVideoTokenService
-
-  @Inject
-  @Dispatcher(WhatsAppDispatchers.IO)
-  lateinit var dispatcher: CoroutineDispatcher
-
-  private val coroutineScope = CoroutineScope(dispatcher)
-
   override fun create(context: Context) {
-    StreamVideoEntryPoint.resolve(context)
-
-    val userId = "stream_user"
+    val userId = "stream"
+    val coroutineScope = CoroutineScope(Dispatchers.IO)
     coroutineScope.launch {
-      val token = streamVideoTokenService.fetchToken(
-        userId = userId,
-        apiKey = BuildConfig.STREAM_API_KEY
-      ).getOrThrow().token
-
       // initialize Stream Video SDK
       StreamVideoBuilder(
         context = context,
         apiKey = BuildConfig.STREAM_API_KEY,
-        token = token,
+        token = devToken(userId),
         user = User(
           id = userId,
-          name = "Stream User",
+          name = "stream",
           image = "http://placekitten.com/200/300",
           role = "admin"
         )
@@ -66,4 +49,16 @@ class StreamVideoInitializer : Initializer<Unit> {
   }
 
   override fun dependencies(): List<Class<out Initializer<*>>> = emptyList()
+}
+
+fun devToken(userId: String): String {
+  require(userId.isNotEmpty()) { "User id must not be empty" }
+  val header = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9" //  {"alg": "HS256", "typ": "JWT"}
+  val devSignature = "devtoken"
+  val payload: String =
+    Base64.encodeToString(
+      "{\"user_id\":\"$userId\"}".toByteArray(StandardCharsets.UTF_8),
+      Base64.NO_WRAP
+    )
+  return "$header.$payload.$devSignature"
 }

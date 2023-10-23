@@ -18,9 +18,13 @@ package io.getstream.whatsappclone.designsystem.component
 
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import io.getstream.whatsappclone.designsystem.theme.GREEN450
 
 @Composable
-fun WhatsAppLoadingIndicator() {
-  CircularProgressIndicator(color = GREEN450)
+fun WhatsAppLoadingIndicator(modifier: Modifier = Modifier) {
+  CircularProgressIndicator(
+    modifier = modifier,
+    color = GREEN450
+  )
 }

@@ -26,6 +26,7 @@ import io.getstream.whatsappclone.chats.messages.WhatsAppMessages
 import io.getstream.whatsappclone.model.WhatsAppUser
 import io.getstream.whatsappclone.ui.WhatsAppTabPager
 import io.getstream.whatsappclone.ui.WhatsAppTopBar
+import io.getstream.whatsappclone.video.WhatsAppVideoCall
 
 fun NavGraphBuilder.whatsAppHomeNavigation() {
   composable(route = WhatsAppScreens.Home.name) {
@@ -63,8 +64,8 @@ fun NavGraphBuilder.whatsAppHomeNavigation() {
     route = WhatsAppScreens.VideoCall.name,
     arguments = WhatsAppScreens.VideoCall.navArguments
   ) {
-    val callId = it.arguments?.getString(WhatsAppScreens.VideoCall.KEY_CALL_ID)
+    val callId = it.arguments?.getString(WhatsAppScreens.VideoCall.KEY_CALL_ID) ?: return@composable
 
-    // TODO
+    WhatsAppVideoCall(id = callId)
   }
 }
