@@ -39,6 +39,7 @@ okhttp = "4.12.0"
 retrofit = "2.9.0"
 retrofitResultAdapter = "1.0.9"
 retrofitKotlinxSerializationJson = "1.0.0"
+googleSecretPlugin = "2.0.1"
 spotless = "6.7.0"
 turbine = "1.0.0"
 
@@ -109,3 +110,4 @@ kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
+google-secrets = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "googleSecretPlugin" }

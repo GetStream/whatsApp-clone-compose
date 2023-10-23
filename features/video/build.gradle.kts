@@ -19,10 +19,18 @@ plugins {
   id("getstream.android.feature")
   id("getstream.android.hilt")
   id("getstream.spotless")
+  id(libs.plugins.google.secrets.get().pluginId)
 }
 
 android {
     namespace = "io.getstream.whatsappclone.video"
+}
+
+secrets {
+  propertiesFileName = "secrets.properties"
+  defaultPropertiesFileName = "secrets.defaults.properties"
+  ignoreList.add("keyToIgnore") // Ignore the key "keyToIgnore"
+  ignoreList.add("sdk.*")       // Ignore all keys matching the regexp "sdk.*"
 }
 
 dependencies {
