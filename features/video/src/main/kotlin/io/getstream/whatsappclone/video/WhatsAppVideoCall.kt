@@ -42,7 +42,7 @@ fun WhatsAppVideoCall(
   val uiState by viewModel.videoUiSate.collectAsStateWithLifecycle()
 
   LaunchedEffect(key1 = id) {
-    viewModel.joinCall(type = "default", id = id)
+    viewModel.joinCall(type = "default", id = id.replace(":", ""))
   }
 
   when (uiState) {

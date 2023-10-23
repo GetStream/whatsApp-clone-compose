@@ -24,6 +24,7 @@ import io.getstream.chat.android.client.ChatClient
 import io.getstream.chat.android.client.utils.onError
 import io.getstream.chat.android.client.utils.onSuccess
 import io.getstream.whatsappclone.navigation.AppComposeNavigator
+import io.getstream.whatsappclone.navigation.WhatsAppScreens
 import io.getstream.whatsappclone.uistate.WhatsAppMessageUiState
 import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -52,6 +53,10 @@ class WhatsAppMessagesViewModel @Inject constructor(
     when (whatsAppMessageEvent) {
       is WhatsAppMessageEvent.NavigateUp -> composeNavigator.navigateUp()
     }
+  }
+
+  fun navigateToVideoCall(channelId: String) {
+    composeNavigator.navigate(WhatsAppScreens.VideoCall.createRoute(channelId))
   }
 
   private fun fetchChannel(channelId: String) {

@@ -32,6 +32,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.skydoves.landscapist.animation.crossfade.CrossfadePlugin
 import com.skydoves.landscapist.components.rememberImageComponent
 import com.skydoves.landscapist.glide.GlideImage
@@ -42,6 +43,8 @@ import io.getstream.whatsappclone.uistate.WhatsAppMessageUiState
 
 @Composable
 fun WhatsAppMessageTopBar(
+  channelId: String,
+  whatsAppMessagesViewModel: WhatsAppMessagesViewModel = hiltViewModel(),
   messageUiState: WhatsAppMessageUiState,
   onBackClick: () -> Unit
 ) {
@@ -64,7 +67,11 @@ fun WhatsAppMessageTopBar(
     },
     actions = {
       Icon(
-        modifier = Modifier.size(26.dp),
+        modifier = Modifier
+          .size(26.dp)
+          .clickable {
+            whatsAppMessagesViewModel.navigateToVideoCall(channelId = channelId)
+          },
         imageVector = WhatsAppIcons.Video,
         tint = MaterialTheme.colorScheme.tertiary,
         contentDescription = null
@@ -131,6 +138,7 @@ private fun WhatsAppMessageUserInfo(
 private fun WhatsAppTopBarPreview() {
   WhatsAppCloneComposeTheme {
     WhatsAppMessageTopBar(
+      channelId = "",
       messageUiState = WhatsAppMessageUiState.Loading,
       onBackClick = {}
     )
@@ -142,6 +150,7 @@ private fun WhatsAppTopBarPreview() {
 private fun WhatsAppTopBarDarkPreview() {
   WhatsAppCloneComposeTheme(darkTheme = true) {
     WhatsAppMessageTopBar(
+      channelId = "",
       messageUiState = WhatsAppMessageUiState.Loading,
       onBackClick = {}
     )
