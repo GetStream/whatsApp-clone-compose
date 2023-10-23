@@ -20,7 +20,7 @@ import androidx.compose.runtime.Immutable
 import com.skydoves.sealedx.core.Extensive
 import com.skydoves.sealedx.core.annotations.ExtensiveModel
 import com.skydoves.sealedx.core.annotations.ExtensiveSealed
-import io.getstream.chat.android.client.models.Channel
+import io.getstream.chat.android.models.Channel
 import io.getstream.video.android.core.Call
 
 /**
