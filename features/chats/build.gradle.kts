@@ -31,8 +31,9 @@ dependencies {
   implementation(project(":core:network"))
   implementation(project(":core:data"))
 
-  // Stream chat Compose
+  // Stream Chat & Video Compose
   api(libs.stream.chat.compose)
+  api(libs.stream.video.compose)
 
   implementation(libs.androidx.lifecycle.runtimeCompose)
   implementation(libs.androidx.lifecycle.viewModelCompose)
