@@ -70,7 +70,7 @@ fun WhatsAppMessageTopBar(
         modifier = Modifier
           .size(26.dp)
           .clickable {
-            whatsAppMessagesViewModel.navigateToVideoCall(channelId = channelId)
+            whatsAppMessagesViewModel.navigateToVideoCall(channelId = channelId, videoCall = true)
           },
         imageVector = WhatsAppIcons.Video,
         tint = MaterialTheme.colorScheme.tertiary,
@@ -80,7 +80,11 @@ fun WhatsAppMessageTopBar(
       Spacer(modifier = Modifier.size(16.dp))
 
       Icon(
-        modifier = Modifier.size(26.dp),
+        modifier = Modifier
+          .size(26.dp)
+          .clickable {
+            whatsAppMessagesViewModel.navigateToVideoCall(channelId = channelId, videoCall = false)
+          },
         imageVector = WhatsAppIcons.Call,
         tint = MaterialTheme.colorScheme.tertiary,
         contentDescription = null

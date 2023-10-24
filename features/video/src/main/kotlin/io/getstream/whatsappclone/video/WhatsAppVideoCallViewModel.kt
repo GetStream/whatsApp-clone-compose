@@ -21,6 +21,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.getstream.video.android.core.StreamVideo
+import io.getstream.whatsappclone.navigation.AppComposeNavigator
 import io.getstream.whatsappclone.uistate.WhatsAppVideoUiState
 import javax.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -28,7 +29,9 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 @HiltViewModel
-class WhatsAppVideoCallViewModel @Inject constructor() : ViewModel() {
+class WhatsAppVideoCallViewModel @Inject constructor(
+  private val composeNavigator: AppComposeNavigator
+) : ViewModel() {
 
   private val videoMutableUiState =
     MutableStateFlow<WhatsAppVideoUiState>(WhatsAppVideoUiState.Loading)
@@ -60,5 +63,9 @@ class WhatsAppVideoCallViewModel @Inject constructor() : ViewModel() {
         videoMutableUiState.value = WhatsAppVideoUiState.Error
       }
     }
+  }
+
+  fun navigateUp() {
+    composeNavigator.navigateUp()
   }
 }

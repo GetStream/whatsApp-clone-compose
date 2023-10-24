@@ -65,7 +65,9 @@ fun NavGraphBuilder.whatsAppHomeNavigation() {
     arguments = WhatsAppScreens.VideoCall.navArguments
   ) {
     val callId = it.arguments?.getString(WhatsAppScreens.VideoCall.KEY_CALL_ID) ?: return@composable
+    val videoCall =
+      it.arguments?.getBoolean(WhatsAppScreens.VideoCall.KEY_VIDEO_ID) ?: return@composable
 
-    WhatsAppVideoCall(id = callId)
+    WhatsAppVideoCall(id = callId, videoCall = videoCall)
   }
 }

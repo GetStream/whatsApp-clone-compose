@@ -62,13 +62,19 @@ sealed class WhatsAppScreens(
       navArgument("call_id") {
         type = NavType.StringType
         nullable = false
+      },
+      navArgument("video_call") {
+        type = NavType.BoolType
+        nullable = false
       }
     )
   ) {
     const val KEY_CALL_ID = "call_id"
+    const val KEY_VIDEO_ID = "video_call"
 
-    fun createRoute(callId: String) =
-      name.replace("{${navArguments.first().name}}", callId)
+    fun createRoute(callId: String, videoCall: Boolean) =
+      name.replace("{${navArguments[0].name}}", callId)
+        .replace("{${navArguments[1].name}}", videoCall.toString())
   }
 }
 
