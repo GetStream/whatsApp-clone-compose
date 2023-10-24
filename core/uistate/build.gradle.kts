@@ -15,7 +15,6 @@
  */
 plugins {
   id("getstream.android.library")
-  id("getstream.android.library.compose")
   id("getstream.spotless")
   id("com.google.devtools.ksp")
 }
@@ -33,7 +32,7 @@ kotlin {
 dependencies {
   implementation(project(":core:model"))
 
-  implementation(libs.androidx.compose.runtime)
+  compileOnly(libs.compose.stable.marker)
 
   implementation(libs.sealedx.core)
   ksp(libs.sealedx.processor)
