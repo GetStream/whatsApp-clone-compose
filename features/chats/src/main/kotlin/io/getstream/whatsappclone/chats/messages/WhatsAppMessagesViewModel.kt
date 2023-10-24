@@ -21,8 +21,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.getstream.chat.android.client.ChatClient
-import io.getstream.chat.android.client.utils.onError
-import io.getstream.chat.android.client.utils.onSuccess
 import io.getstream.whatsappclone.navigation.AppComposeNavigator
 import io.getstream.whatsappclone.navigation.WhatsAppScreens
 import io.getstream.whatsappclone.uistate.WhatsAppMessageUiState
@@ -63,7 +61,7 @@ class WhatsAppMessagesViewModel @Inject constructor(
     viewModelScope.launch {
       val result = chatClient.channel(channelId).watch().await()
       result.onSuccess {
-        messageMutableUiState.value = WhatsAppMessageUiState.Success(result.data())
+        messageMutableUiState.value = WhatsAppMessageUiState.Success(result.getOrThrow())
       }.onError {
         messageMutableUiState.value = WhatsAppMessageUiState.Error
       }

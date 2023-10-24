@@ -39,7 +39,8 @@ dependencies {
   implementation(project(":core:network"))
   implementation(project(":core:data"))
 
-  // Stream Chat Compose
+  // Stream Chat SDK
+  api(libs.stream.chat.offline)
   api(libs.stream.chat.compose)
 
   implementation(libs.androidx.lifecycle.runtimeCompose)

@@ -1,5 +1,5 @@
 [versions]
-streamChatSDK = "5.17.10"
+streamChatSDK = "6.0.5"
 streamVideoSDK = "0.3.4"
 streamLog = "1.1.4"
 sealedx = "1.0.1"
@@ -45,6 +45,7 @@ turbine = "1.0.0"
 
 [libraries]
 stream-chat-client = { group = "io.getstream", name = "stream-chat-android-client", version.ref = "streamChatSDK" }
+stream-chat-offline = { group = "io.getstream", name = "stream-chat-android-offline", version.ref = "streamChatSDK" }
 stream-chat-compose = { group = "io.getstream", name = "stream-chat-android-compose", version.ref = "streamChatSDK" }
 stream-video-core = { group = "io.getstream", name = "stream-video-android-core", version.ref = "streamVideoSDK" }
 stream-video-compose = { group = "io.getstream", name = "stream-video-android-compose", version.ref = "streamVideoSDK" }

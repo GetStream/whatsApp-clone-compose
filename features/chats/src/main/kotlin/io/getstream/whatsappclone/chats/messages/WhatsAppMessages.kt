@@ -21,9 +21,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import io.getstream.chat.android.compose.ui.messages.MessagesScreen
+import io.getstream.chat.android.compose.viewmodel.messages.MessagesViewModelFactory
 import io.getstream.whatsappclone.chats.theme.WhatsAppChatTheme
 
 @Composable
@@ -42,7 +44,11 @@ fun WhatsAppMessages(
       )
 
       MessagesScreen(
-        channelId = channelId,
+        viewModelFactory = MessagesViewModelFactory(
+          context = LocalContext.current,
+          channelId = channelId,
+          messageLimit = 30
+        ),
         showHeader = false,
         onBackPressed = { whatsAppMessagesViewModel.handleEvents(WhatsAppMessageEvent.NavigateUp) }
       )
