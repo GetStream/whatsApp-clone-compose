@@ -16,6 +16,7 @@
 
 package io.getstream.whatsappclone.calls.info
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -28,6 +29,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.skydoves.landscapist.glide.GlideImage
 import io.getstream.whatsappclone.designsystem.R
 import io.getstream.whatsappclone.designsystem.icon.WhatsAppIcons
@@ -40,8 +42,8 @@ import java.util.Date
 @Composable
 fun WhatsAppCallHistoryInfoBody(
   modifier: Modifier,
-  whatsAppUser: WhatsAppUser
-
+  whatsAppUser: WhatsAppUser,
+  whatsAppCallHistoryViewModel: WhatsAppCallHistoryViewModel = hiltViewModel()
 ) {
   ConstraintLayout(modifier = modifier.padding(12.dp)) {
     val (image, name, call, divider, location, date) = createRefs()
@@ -77,6 +79,12 @@ fun WhatsAppCallHistoryInfoBody(
         .constrainAs(call) {
           top.linkTo(parent.top)
           end.linkTo(parent.end)
+        }
+        .clickable {
+          whatsAppCallHistoryViewModel.navigateToVideoCall(
+            channelId = whatsAppUser.cell,
+            videoCall = false
+          )
         },
       imageVector = WhatsAppIcons.Call,
       tint = GREEN450,

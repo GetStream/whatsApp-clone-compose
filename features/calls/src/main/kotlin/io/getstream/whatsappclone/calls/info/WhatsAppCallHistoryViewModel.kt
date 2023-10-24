@@ -19,6 +19,7 @@ package io.getstream.whatsappclone.calls.info
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.getstream.whatsappclone.navigation.AppComposeNavigator
+import io.getstream.whatsappclone.navigation.WhatsAppScreens
 import javax.inject.Inject
 
 @HiltViewModel
@@ -28,5 +29,14 @@ class WhatsAppCallHistoryViewModel @Inject constructor(
 
   fun navigateUp() {
     composeNavigator.navigateUp()
+  }
+
+  fun navigateToVideoCall(channelId: String, videoCall: Boolean) {
+    composeNavigator.navigate(
+      WhatsAppScreens.VideoCall.createRoute(
+        callId = channelId,
+        videoCall = videoCall
+      )
+    )
   }
 }
