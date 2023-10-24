@@ -15,6 +15,7 @@ The purpose of this repository is to demonstrate below:
 - Implementation of Android architecture components with Jetpack libraries such as Hilt and AppStartup.
 - Performing background tasks with Kotlin Coroutines.
 - Integrating chat systems with Stream Chat SDK for real-time event handling.
+- Integrating video call systems with Stream Video SDK using WebRTC under the hood.
 
 ## ✍️ Technical Content
 
@@ -27,6 +28,7 @@ If you're interested in additional repositories that were built with Jetpack Com
 - [ChatGPT Android](https://github.com/skydoves/chatgpt-android): 📱 ChatGPT Android demonstrates OpenAI's ChatGPT on Android with Stream Chat SDK for Compose.
 - [Slack Clone Android](https://github.com/GetStream/stream-slack-clone-android): 📱 A chat demo app built with Jetpack Compose and Stream Chat SDK following clean architecture principles.
 - [Stream Draw Android](https://github.com/getStream/stream-draw-android): 🛥 Stream Draw is a real-time multiplayer drawing & chat game app built entirely with Jetpack Compose.
+- [Meeting Room Compose](https://github.com/GetStream/meeting-room-compose): 🎙️ A real-time meeting room app built with Jetpack Compose to demonstrate video communications.
 - [Facebook Messenger Clone](https://github.com/MathRoda/Messenger-clone): Facebook Messenger clone using Stream SDK & Jetpack Compose.
 
 ## 📲 Download APK
@@ -36,23 +38,30 @@ Go to the [Releases](https://github.com/GetStream/whatsapp-clone-compose/release
 <img src="https://user-images.githubusercontent.com/24237865/138428440-b92e5fb7-89f8-41aa-96b1-71a5486c5849.png" align="right" width="12%"/>
 </a>
 
-## 🛥 Stream Chat SDK
-**WhatsApp Clone Compose** is built with __[Stream Chat SDK for Compose](https://getstream.io/chat/sdk/compose?utm_source=Github&utm_medium=Github_Repo_Content_Ad&utm_content=Developer&utm_campaign=Github_Dec2022_Jaewoong_WhatsAppCompose&utm_term=DevRelOss)__ to implement messaging systems.
+## 🛥 Stream Chat & Video SDK
+**WhatsApp Clone Compose** is built with __[Stream Chat SDK for Compose](https://getstream.io/chat/sdk/compose?utm_source=Github&utm_medium=Github_Repo_Content_Ad&utm_content=Developer&utm_campaign=Github_Dec2022_Jaewoong_WhatsAppCompose&utm_term=DevRelOss)__ to implement messaging systems and __[Stream Video SDK for Compose](https://getstream.io/video/docs/android?utm_source=Github&utm_medium=Jaewoong_OSS&utm_content=Developer&utm_campaign=Github_Dec2023_Jaewoong_WhatsAppCompose&utm_term=DevRelOss)__
 If you’re interested in adding powerful In-App Messaging to your app, check out the __[Android Chat Messaging Tutorial](https://getstream.io/tutorials/android-chat?utm_source=Github&utm_medium=Github_Repo_Content_Ad&utm_content=Developer&utm_campaign=Github_Dec2022_Jaewoong_WhatsAppCompose&utm_term=DevRelOss)__!
+
+### Stream Chat
 
 - [Stream Chat SDK for Android on GitHub](https://github.com/getStream/stream-chat-android)
 - [Android Samples for Stream Chat SDK on GitHub](https://github.com/getStream/android-samples)
-- [Stream Chat Compose UI Componenets Guidelines](https://getstream.io/chat/docs/sdk/android/compose/overview/)
+- [Stream Chat Compose UI Components Guidelines](https://getstream.io/chat/docs/sdk/android/compose/overview/)
+
+### Stream Video
+
+- [Stream Video SDK for Android on GitHub](https://github.com/getstream/stream-video-android?utm_source=Github&utm_medium=Jaewoong_OSS&utm_content=Developer&utm_campaign=Github_Dec2023_Jaewoong_WhatsAppCompose&utm_term=DevRelOss)
+- [Video Call Tutorial](https://getstream.io/video/docs/android/tutorials/video-calling?utm_source=Github&utm_medium=Jaewoong_OSS&utm_content=Developer&utm_campaign=Github_Dec2023_Jaewoong_WhatsAppCompose&utm_term=DevRelOss)
+- [Audio Room Tutorial](https://getstream.io/video/docs/android/tutorials/audio-room?utm_source=Github&utm_medium=Jaewoong_OSS&utm_content=Developer&utm_campaign=Github_Dec2023_Jaewoong_WhatsAppCompose&utm_term=DevRelOss)
+- [Livestream Tutorial](https://getstream.io/video/docs/android/tutorials/livestream?utm_source=Github&utm_medium=Jaewoong_OSS&utm_content=Developer&utm_campaign=Github_Dec2023_Jaewoong_WhatsAppCompose&utm_term=DevRelOss)
 
 ## 💻 Build Your Own Chat Project
 
 <details>
  <summary> If you want to build your own chat project, you should follow the instructions below:</summary>
 
-<de>
-
 1. Go to the __[Stream login page](https://getstream.io/try-for-free?utm_source=Github&utm_medium=Github_Repo_Content_Ad&utm_content=Developer&utm_campaign=Github_Dec2022_Jaewoong_WhatsAppCompose&utm_term=DevRelOss)__.
-2. If you have your GitHub account, click the **SIGN UP WITH GITHUB** button and you can sign up within a couple of seconds. 
+2. If you have your GitHub account, click the **SIGN UP WITH GITHUB** button and you can sign up within a couple of seconds.
 
 ![stream](figures/stream0.png)
 
@@ -90,6 +99,7 @@ If you’re interested in adding powerful In-App Messaging to your app, check ou
 - Minimum SDK level 21.
 - 100% [Jetpack Compose](https://developer.android.com/jetpack/compose) based + [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) + [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/) for asynchronous.
 - [Compose Chat SDK for Messaging](https://getstream.io/chat/sdk/compose?utm_source=Github&utm_medium=Github_Repo_Content_Ad&utm_content=Developer&utm_campaign=Github_Dec2022_Jaewoong_WhatsAppCompose&utm_term=DevRelOss): The Jetpack Compose Chat Messaging SDK is built on a low-level chat client and provides modular, customizable Compose UI components that you can easily drop into your app.
+- [Compose Video SDK for Video Calling](https://getstream.io/video/docs/android?utm_source=Github&utm_medium=Jaewoong_OSS&utm_content=Developer&utm_campaign=Github_Dec2023_Jaewoong_WhatsAppCompose&utm_term=DevRelOss))
 - Jetpack
   - Compose: Android’s modern toolkit for building native UI.
   - ViewModel: UI related data holder and lifecycle aware.
