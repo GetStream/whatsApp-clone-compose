@@ -53,8 +53,13 @@ class WhatsAppMessagesViewModel @Inject constructor(
     }
   }
 
-  fun navigateToVideoCall(channelId: String) {
-    composeNavigator.navigate(WhatsAppScreens.VideoCall.createRoute(channelId))
+  fun navigateToVideoCall(channelId: String, videoCall: Boolean) {
+    composeNavigator.navigate(
+      WhatsAppScreens.VideoCall.createRoute(
+        callId = channelId,
+        videoCall = videoCall
+      )
+    )
   }
 
   private fun fetchChannel(channelId: String) {

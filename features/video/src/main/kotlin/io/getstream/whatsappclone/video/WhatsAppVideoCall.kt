@@ -18,6 +18,7 @@ package io.getstream.whatsappclone.video
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.Text
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -25,11 +26,15 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import io.getstream.video.android.compose.theme.VideoTheme
 import io.getstream.video.android.compose.ui.components.call.activecall.CallContent
+import io.getstream.video.android.compose.ui.components.call.controls.ControlActions
+import io.getstream.video.android.compose.ui.components.call.controls.actions.LeaveCallAction
+import io.getstream.video.android.compose.ui.components.call.controls.actions.ToggleMicrophoneAction
 import io.getstream.video.android.core.Call
 import io.getstream.whatsappclone.designsystem.component.WhatsAppLoadingIndicator
 import io.getstream.whatsappclone.uistate.WhatsAppVideoUiState
@@ -37,6 +42,7 @@ import io.getstream.whatsappclone.uistate.WhatsAppVideoUiState
 @Composable
 fun WhatsAppVideoCall(
   id: String,
+  videoCall: Boolean,
   viewModel: WhatsAppVideoCallViewModel = hiltViewModel()
 ) {
   val uiState by viewModel.videoUiSate.collectAsStateWithLifecycle()
@@ -47,7 +53,11 @@ fun WhatsAppVideoCall(
 
   when (uiState) {
     is WhatsAppVideoUiState.Success ->
-      WhatsAppVideoCallContent(call = (uiState as WhatsAppVideoUiState.Success).data)
+      WhatsAppVideoCallContent(
+        call = (uiState as WhatsAppVideoUiState.Success).data,
+        videoCall = videoCall,
+        onBackPressed = { viewModel.navigateUp() }
+      )
 
     is WhatsAppVideoUiState.Error -> WhatsAppVideoCallError()
 
@@ -57,10 +67,47 @@ fun WhatsAppVideoCall(
 
 @Composable
 fun WhatsAppVideoCallContent(
-  call: Call
+  call: Call,
+  videoCall: Boolean,
+  onBackPressed: () -> Unit
 ) {
+  val isMicrophoneEnabled by call.microphone.isEnabled.collectAsStateWithLifecycle()
+
+  LaunchedEffect(key1 = call.id) {
+    if (!videoCall) {
+      call.camera.setEnabled(false)
+    }
+  }
+
   VideoTheme {
-    CallContent(call = call)
+    CallContent(
+      call = call,
+      onBackPressed = onBackPressed,
+      controlsContent = {
+        if (videoCall) {
+          ControlActions(call = call)
+        } else {
+          ControlActions(
+            call = call,
+            actions = listOf(
+              {
+                ToggleMicrophoneAction(
+                  modifier = Modifier.size(52.dp),
+                  isMicrophoneEnabled = isMicrophoneEnabled,
+                  onCallAction = { call.microphone.setEnabled(it.isEnabled) }
+                )
+              },
+              {
+                LeaveCallAction(
+                  modifier = Modifier.size(52.dp),
+                  onCallAction = { onBackPressed.invoke() }
+                )
+              }
+            )
+          )
+        }
+      }
+    )
   }
 }
 
