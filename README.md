@@ -78,7 +78,11 @@ If you’re interested in adding powerful In-App Messaging to your app, check ou
 
 ![stream](figures/stream3.png)
 
-7. Go to the [whatsApp-clone-compose/features/chats/../strings.xml](https://github.com/GetStream/whatsApp-clone-compose/blob/main/features/chats/src/main/res/values/strings.xml#LL19C16-L19C30) and change the `stream_api_key` field with your key.
+7. Create a `secrets.properties` file on the root project directory with the text below using your API key:
+
+```
+STREAM_API_KEY=REPLACE WITH YOUR API KEY
+```
 
 8. Build and run the project.
 
