@@ -22,6 +22,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material.Text
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -33,7 +34,9 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import io.getstream.video.android.compose.theme.VideoTheme
 import io.getstream.video.android.compose.ui.components.call.activecall.CallContent
 import io.getstream.video.android.compose.ui.components.call.controls.ControlActions
+import io.getstream.video.android.compose.ui.components.call.controls.actions.FlipCameraAction
 import io.getstream.video.android.compose.ui.components.call.controls.actions.LeaveCallAction
+import io.getstream.video.android.compose.ui.components.call.controls.actions.ToggleCameraAction
 import io.getstream.video.android.compose.ui.components.call.controls.actions.ToggleMicrophoneAction
 import io.getstream.video.android.core.Call
 import io.getstream.whatsappclone.designsystem.component.WhatsAppLoadingIndicator
@@ -71,12 +74,15 @@ fun WhatsAppVideoCallContent(
   videoCall: Boolean,
   onBackPressed: () -> Unit
 ) {
+  val isCameraEnabled by call.camera.isEnabled.collectAsStateWithLifecycle()
   val isMicrophoneEnabled by call.microphone.isEnabled.collectAsStateWithLifecycle()
 
-  LaunchedEffect(key1 = call.id) {
+  DisposableEffect(key1 = call.id) {
     if (!videoCall) {
       call.camera.setEnabled(false)
     }
+
+    onDispose { call.leave() }
   }
 
   VideoTheme {
@@ -85,7 +91,37 @@ fun WhatsAppVideoCallContent(
       onBackPressed = onBackPressed,
       controlsContent = {
         if (videoCall) {
-          ControlActions(call = call)
+          ControlActions(
+            call = call,
+            actions = listOf(
+              {
+                ToggleCameraAction(
+                  modifier = Modifier.size(52.dp),
+                  isCameraEnabled = isCameraEnabled,
+                  onCallAction = { call.camera.setEnabled(it.isEnabled) }
+                )
+              },
+              {
+                ToggleMicrophoneAction(
+                  modifier = Modifier.size(52.dp),
+                  isMicrophoneEnabled = isMicrophoneEnabled,
+                  onCallAction = { call.microphone.setEnabled(it.isEnabled) }
+                )
+              },
+              {
+                FlipCameraAction(
+                  modifier = Modifier.size(52.dp),
+                  onCallAction = { call.camera.flip() }
+                )
+              },
+              {
+                LeaveCallAction(
+                  modifier = Modifier.size(52.dp),
+                  onCallAction = { onBackPressed.invoke() }
+                )
+              }
+            )
+          )
         } else {
           ControlActions(
             call = call,
