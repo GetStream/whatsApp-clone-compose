@@ -27,6 +27,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -39,6 +41,8 @@ import io.getstream.video.android.compose.ui.components.call.controls.actions.Le
 import io.getstream.video.android.compose.ui.components.call.controls.actions.ToggleCameraAction
 import io.getstream.video.android.compose.ui.components.call.controls.actions.ToggleMicrophoneAction
 import io.getstream.video.android.core.Call
+import io.getstream.video.android.mock.StreamMockUtils
+import io.getstream.video.android.mock.mockCall
 import io.getstream.whatsappclone.designsystem.component.WhatsAppLoadingIndicator
 import io.getstream.whatsappclone.uistate.WhatsAppVideoUiState
 
@@ -69,7 +73,7 @@ fun WhatsAppVideoCall(
 }
 
 @Composable
-fun WhatsAppVideoCallContent(
+private fun WhatsAppVideoCallContent(
   call: Call,
   videoCall: Boolean,
   onBackPressed: () -> Unit
@@ -148,7 +152,7 @@ fun WhatsAppVideoCallContent(
 }
 
 @Composable
-fun WhatsAppVideoCallError() {
+private fun WhatsAppVideoCallError() {
   Box(modifier = Modifier.fillMaxSize()) {
     Text(
       modifier = Modifier.align(Alignment.Center),
@@ -161,8 +165,20 @@ fun WhatsAppVideoCallError() {
 }
 
 @Composable
-fun WhatsAppVideoLoading() {
+private fun WhatsAppVideoLoading() {
   Box(modifier = Modifier.fillMaxSize()) {
     WhatsAppLoadingIndicator(modifier = Modifier.align(Alignment.Center))
+  }
+}
+
+@Preview
+@Composable
+private fun WhatsAppVideoCallContentPreview() {
+  StreamMockUtils.initializeStreamVideo(LocalContext.current)
+  VideoTheme {
+    WhatsAppVideoCallContent(
+      call = mockCall,
+      videoCall = true
+    ) {}
   }
 }
