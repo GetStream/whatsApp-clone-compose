@@ -27,6 +27,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -39,7 +41,9 @@ import io.getstream.video.android.compose.ui.components.call.controls.actions.Le
 import io.getstream.video.android.compose.ui.components.call.controls.actions.ToggleCameraAction
 import io.getstream.video.android.compose.ui.components.call.controls.actions.ToggleMicrophoneAction
 import io.getstream.video.android.core.Call
+import io.getstream.video.android.mock.StreamMockUtils
 import io.getstream.whatsappclone.designsystem.component.WhatsAppLoadingIndicator
+import io.getstream.whatsappclone.navigation.WhatsAppCloneComposeNavigator
 import io.getstream.whatsappclone.uistate.WhatsAppVideoUiState
 
 @Composable
@@ -164,5 +168,20 @@ private fun WhatsAppVideoCallError() {
 private fun WhatsAppVideoLoading() {
   Box(modifier = Modifier.fillMaxSize()) {
     WhatsAppLoadingIndicator(modifier = Modifier.align(Alignment.Center))
+  }
+}
+
+@Preview
+@Composable
+private fun WhatsAppVideoCallContentPreview() {
+  StreamMockUtils.initializeStreamVideo(LocalContext.current)
+  VideoTheme {
+    WhatsAppVideoCall(
+      id = "",
+      videoCall = true,
+      viewModel = WhatsAppVideoCallViewModel(
+        WhatsAppCloneComposeNavigator()
+      )
+    )
   }
 }
