@@ -40,7 +40,7 @@ dependencies {
   implementation(project(":core:data"))
 
   implementation(libs.stream.video.compose)
-  compileOnly(libs.stream.video.mock)
+  implementation(libs.stream.video.mock)
 
   implementation(libs.androidx.lifecycle.runtimeCompose)
   implementation(libs.androidx.lifecycle.viewModelCompose)

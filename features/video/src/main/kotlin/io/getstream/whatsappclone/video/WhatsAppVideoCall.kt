@@ -42,8 +42,8 @@ import io.getstream.video.android.compose.ui.components.call.controls.actions.To
 import io.getstream.video.android.compose.ui.components.call.controls.actions.ToggleMicrophoneAction
 import io.getstream.video.android.core.Call
 import io.getstream.video.android.mock.StreamMockUtils
+import io.getstream.video.android.mock.mockCall
 import io.getstream.whatsappclone.designsystem.component.WhatsAppLoadingIndicator
-import io.getstream.whatsappclone.navigation.WhatsAppCloneComposeNavigator
 import io.getstream.whatsappclone.uistate.WhatsAppVideoUiState
 
 @Composable
@@ -176,12 +176,9 @@ private fun WhatsAppVideoLoading() {
 private fun WhatsAppVideoCallContentPreview() {
   StreamMockUtils.initializeStreamVideo(LocalContext.current)
   VideoTheme {
-    WhatsAppVideoCall(
-      id = "",
-      videoCall = true,
-      viewModel = WhatsAppVideoCallViewModel(
-        WhatsAppCloneComposeNavigator()
-      )
-    )
+    WhatsAppVideoCallContent(
+      call = mockCall,
+      videoCall = true
+    ) {}
   }
 }
