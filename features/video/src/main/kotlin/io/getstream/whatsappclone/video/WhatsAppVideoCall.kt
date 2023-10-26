@@ -69,7 +69,7 @@ fun WhatsAppVideoCall(
 }
 
 @Composable
-fun WhatsAppVideoCallContent(
+private fun WhatsAppVideoCallContent(
   call: Call,
   videoCall: Boolean,
   onBackPressed: () -> Unit
@@ -148,7 +148,7 @@ fun WhatsAppVideoCallContent(
 }
 
 @Composable
-fun WhatsAppVideoCallError() {
+private fun WhatsAppVideoCallError() {
   Box(modifier = Modifier.fillMaxSize()) {
     Text(
       modifier = Modifier.align(Alignment.Center),
@@ -161,7 +161,7 @@ fun WhatsAppVideoCallError() {
 }
 
 @Composable
-fun WhatsAppVideoLoading() {
+private fun WhatsAppVideoLoading() {
   Box(modifier = Modifier.fillMaxSize()) {
     WhatsAppLoadingIndicator(modifier = Modifier.align(Alignment.Center))
   }
