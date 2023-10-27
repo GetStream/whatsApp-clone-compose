@@ -23,29 +23,23 @@ import io.getstream.video.android.core.StreamVideoBuilder
 import io.getstream.video.android.model.User
 import io.getstream.whatsappclone.video.BuildConfig
 import java.nio.charset.StandardCharsets
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class StreamVideoInitializer : Initializer<Unit> {
 
   override fun create(context: Context) {
     val userId = "stream"
-    val coroutineScope = CoroutineScope(Dispatchers.IO)
-    coroutineScope.launch {
-      // initialize Stream Video SDK
-      StreamVideoBuilder(
-        context = context,
-        apiKey = BuildConfig.STREAM_API_KEY,
-        token = devToken(userId),
-        user = User(
-          id = userId,
-          name = "stream",
-          image = "http://placekitten.com/200/300",
-          role = "admin"
-        )
-      ).build()
-    }
+    // initialize Stream Video SDK
+    StreamVideoBuilder(
+      context = context,
+      apiKey = BuildConfig.STREAM_API_KEY,
+      token = devToken(userId),
+      user = User(
+        id = userId,
+        name = "stream",
+        image = "http://placekitten.com/200/300",
+        role = "admin"
+      )
+    ).build()
   }
 
   override fun dependencies(): List<Class<out Initializer<*>>> = emptyList()
