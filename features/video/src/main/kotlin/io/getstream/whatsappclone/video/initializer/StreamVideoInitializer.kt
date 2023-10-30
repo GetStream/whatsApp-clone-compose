@@ -28,7 +28,6 @@ class StreamVideoInitializer : Initializer<Unit> {
 
   override fun create(context: Context) {
     val userId = "stream"
-    // initialize Stream Video SDK
     StreamVideoBuilder(
       context = context,
       apiKey = BuildConfig.STREAM_API_KEY,

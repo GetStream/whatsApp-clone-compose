@@ -16,7 +16,6 @@
 
 package io.getstream.whatsappclone.video
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -43,7 +42,6 @@ class WhatsAppVideoCallViewModel @Inject constructor(
       val activeCall = streamVideo.state.activeCall.value
       val call = if (activeCall != null) {
         if (activeCall.id != id) {
-          Log.w("CallActivity", "A call with id: $id existed. Leaving.")
           // If the call id is different leave the previous call
           activeCall.leave()
           // Return a new call
