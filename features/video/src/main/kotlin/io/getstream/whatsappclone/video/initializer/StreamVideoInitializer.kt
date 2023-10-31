@@ -17,12 +17,11 @@
 package io.getstream.whatsappclone.video.initializer
 
 import android.content.Context
-import android.util.Base64
 import androidx.startup.Initializer
+import io.getstream.video.android.core.StreamVideo
 import io.getstream.video.android.core.StreamVideoBuilder
 import io.getstream.video.android.model.User
 import io.getstream.whatsappclone.video.BuildConfig
-import java.nio.charset.StandardCharsets
 
 class StreamVideoInitializer : Initializer<Unit> {
 
@@ -31,7 +30,7 @@ class StreamVideoInitializer : Initializer<Unit> {
     StreamVideoBuilder(
       context = context,
       apiKey = BuildConfig.STREAM_API_KEY,
-      token = devToken(userId),
+      token = StreamVideo.devToken(userId),
       user = User(
         id = userId,
         name = "stream",
@@ -42,16 +41,4 @@ class StreamVideoInitializer : Initializer<Unit> {
   }
 
   override fun dependencies(): List<Class<out Initializer<*>>> = emptyList()
-}
-
-fun devToken(userId: String): String {
-  require(userId.isNotEmpty()) { "User id must not be empty" }
-  val header = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9" //  {"alg": "HS256", "typ": "JWT"}
-  val devSignature = "devtoken"
-  val payload: String =
-    Base64.encodeToString(
-      "{\"user_id\":\"$userId\"}".toByteArray(StandardCharsets.UTF_8),
-      Base64.NO_WRAP
-    )
-  return "$header.$payload.$devSignature"
 }
