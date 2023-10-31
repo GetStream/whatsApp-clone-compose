@@ -25,6 +25,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -38,9 +41,11 @@ import io.getstream.video.android.compose.ui.components.call.activecall.CallCont
 import io.getstream.video.android.compose.ui.components.call.controls.ControlActions
 import io.getstream.video.android.compose.ui.components.call.controls.actions.FlipCameraAction
 import io.getstream.video.android.compose.ui.components.call.controls.actions.LeaveCallAction
+import io.getstream.video.android.compose.ui.components.call.controls.actions.ReactionAction
 import io.getstream.video.android.compose.ui.components.call.controls.actions.ToggleCameraAction
 import io.getstream.video.android.compose.ui.components.call.controls.actions.ToggleMicrophoneAction
 import io.getstream.video.android.core.Call
+import io.getstream.video.android.core.mapper.ReactionMapper
 import io.getstream.video.android.mock.StreamMockUtils
 import io.getstream.video.android.mock.mockCall
 import io.getstream.whatsappclone.designsystem.component.WhatsAppLoadingIndicator
@@ -80,6 +85,7 @@ private fun WhatsAppVideoCallContent(
 ) {
   val isCameraEnabled by call.camera.isEnabled.collectAsStateWithLifecycle()
   val isMicrophoneEnabled by call.microphone.isEnabled.collectAsStateWithLifecycle()
+  var isShowingReactionDialog by remember { mutableStateOf(false) }
 
   DisposableEffect(key1 = call.id) {
     if (!videoCall) {
@@ -90,64 +96,86 @@ private fun WhatsAppVideoCallContent(
   }
 
   VideoTheme {
-    CallContent(
-      call = call,
-      onBackPressed = onBackPressed,
-      controlsContent = {
-        if (videoCall) {
-          ControlActions(
-            call = call,
-            actions = listOf(
-              {
-                ToggleCameraAction(
-                  modifier = Modifier.size(52.dp),
-                  isCameraEnabled = isCameraEnabled,
-                  onCallAction = { call.camera.setEnabled(it.isEnabled) }
-                )
-              },
-              {
-                ToggleMicrophoneAction(
-                  modifier = Modifier.size(52.dp),
-                  isMicrophoneEnabled = isMicrophoneEnabled,
-                  onCallAction = { call.microphone.setEnabled(it.isEnabled) }
-                )
-              },
-              {
-                FlipCameraAction(
-                  modifier = Modifier.size(52.dp),
-                  onCallAction = { call.camera.flip() }
-                )
-              },
-              {
-                LeaveCallAction(
-                  modifier = Modifier.size(52.dp),
-                  onCallAction = { onBackPressed.invoke() }
-                )
-              }
+    Box(modifier = Modifier.fillMaxSize()) {
+      CallContent(
+        call = call,
+        onBackPressed = onBackPressed,
+        controlsContent = {
+          if (videoCall) {
+            ControlActions(
+              call = call,
+              actions = listOf(
+                {
+                  ReactionAction(
+                    modifier = Modifier.size(52.dp),
+                    onCallAction = { isShowingReactionDialog = true }
+                  )
+                },
+                {
+                  ToggleCameraAction(
+                    modifier = Modifier.size(52.dp),
+                    isCameraEnabled = isCameraEnabled,
+                    onCallAction = { call.camera.setEnabled(it.isEnabled) }
+                  )
+                },
+                {
+                  ToggleMicrophoneAction(
+                    modifier = Modifier.size(52.dp),
+                    isMicrophoneEnabled = isMicrophoneEnabled,
+                    onCallAction = { call.microphone.setEnabled(it.isEnabled) }
+                  )
+                },
+                {
+                  FlipCameraAction(
+                    modifier = Modifier.size(52.dp),
+                    onCallAction = { call.camera.flip() }
+                  )
+                },
+                {
+                  LeaveCallAction(
+                    modifier = Modifier.size(52.dp),
+                    onCallAction = { onBackPressed.invoke() }
+                  )
+                }
+              )
             )
-          )
-        } else {
-          ControlActions(
-            call = call,
-            actions = listOf(
-              {
-                ToggleMicrophoneAction(
-                  modifier = Modifier.size(52.dp),
-                  isMicrophoneEnabled = isMicrophoneEnabled,
-                  onCallAction = { call.microphone.setEnabled(it.isEnabled) }
-                )
-              },
-              {
-                LeaveCallAction(
-                  modifier = Modifier.size(52.dp),
-                  onCallAction = { onBackPressed.invoke() }
-                )
-              }
+          } else {
+            ControlActions(
+              call = call,
+              actions = listOf(
+                {
+                  ReactionAction(
+                    modifier = Modifier.size(52.dp),
+                    onCallAction = { isShowingReactionDialog = true }
+                  )
+                },
+                {
+                  ToggleMicrophoneAction(
+                    modifier = Modifier.size(52.dp),
+                    isMicrophoneEnabled = isMicrophoneEnabled,
+                    onCallAction = { call.microphone.setEnabled(it.isEnabled) }
+                  )
+                },
+                {
+                  LeaveCallAction(
+                    modifier = Modifier.size(52.dp),
+                    onCallAction = { onBackPressed.invoke() }
+                  )
+                }
+              )
             )
-          )
+          }
         }
+      )
+
+      if (isShowingReactionDialog) {
+        ReactionsMenu(
+          call = call,
+          reactionMapper = ReactionMapper.defaultReactionMapper(),
+          onDismiss = { isShowingReactionDialog = false }
+        )
       }
-    )
+    }
   }
 }
 
