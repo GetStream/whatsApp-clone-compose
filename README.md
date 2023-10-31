@@ -97,6 +97,9 @@ STREAM_API_KEY=REPLACE WITH YOUR API KEY
 <img src="previews/preview5.png" alt="drawing" width="269" />
 <img src="previews/preview4.png" alt="drawing" width="270" />
 <img src="previews/preview3.png" alt="drawing" width="270" />
+<img src="previews/preview6.png" alt="drawing" width="270" />
+<img src="previews/preview7.png" alt="drawing" width="270" />
+<img src="previews/preview8.png" alt="drawing" width="270" />
 </p>
 
 ## 🛠 Tech Stack & Open Source Libraries
