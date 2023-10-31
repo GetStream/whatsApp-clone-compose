@@ -108,7 +108,8 @@ private fun WhatsAppVideoCallContent(
                 {
                   ReactionAction(
                     modifier = Modifier.size(52.dp),
-                    onCallAction = { isShowingReactionDialog = true }
+                    onCallAction = { isShowingReactionDialog = true },
+                    enabledColor = VideoTheme.colors.callActionIconDisabledBackground
                   )
                 },
                 {
