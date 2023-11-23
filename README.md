@@ -26,6 +26,7 @@ If you're interested in the overall architecture, each layer, and Compose themes
 If you're interested in additional repositories that were built with Jetpack Compose and Stream SDK, check out the repositories below:
 
 - [ChatGPT Android](https://github.com/skydoves/chatgpt-android): 📱 ChatGPT Android demonstrates OpenAI's ChatGPT on Android with Stream Chat SDK for Compose.
+- [Twitch Clone Compose](https://github.com/skydoves/twitch-clone-compose): 🎮 Twitch clone project demonstrates modern Android development built with Jetpack Compose and Stream Chat/Video SDK for Compose.
 - [Slack Clone Android](https://github.com/GetStream/stream-slack-clone-android): 📱 A chat demo app built with Jetpack Compose and Stream Chat SDK following clean architecture principles.
 - [Stream Draw Android](https://github.com/getStream/stream-draw-android): 🛥 Stream Draw is a real-time multiplayer drawing & chat game app built entirely with Jetpack Compose.
 - [Meeting Room Compose](https://github.com/GetStream/meeting-room-compose): 🎙️ A real-time meeting room app built with Jetpack Compose to demonstrate video communications.
