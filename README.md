@@ -19,7 +19,10 @@ The purpose of this repository is to demonstrate below:
 
 ## ✍️ Technical Content
 
-If you're interested in the overall architecture, each layer, and Compose themes that are used in this project, check out **[Build a Real-Time WhatsApp Clone With Jetpack Compose](https://getstream.io/blog/build-whatsapp-clone/)**.
+If you're interested in the overall architecture, each layer, and Compose themes that are used in this project, check out the blog posts below: 
+
+- Part 1: **[Build a Real-Time WhatsApp Clone With Jetpack Compose](https://getstream.io/blog/build-whatsapp-clone/)**
+- Part 2: **[Build Video Calling for Your Android WhatsApp Clone With Jetpack Compose](https://getstream.io/blog/build-video-calling-compose/)**
 
 ## :bulb: Additional Repositories
 
