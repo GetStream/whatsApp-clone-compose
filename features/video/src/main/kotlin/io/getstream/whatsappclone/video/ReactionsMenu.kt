@@ -17,6 +17,7 @@
 @file:OptIn(
   ExperimentalLayoutApi::class,
   ExperimentalLayoutApi::class,
+  ExperimentalLayoutApi::class,
   ExperimentalLayoutApi::class
 )
 
@@ -48,8 +49,8 @@ import androidx.compose.ui.window.Dialog
 import io.getstream.video.android.compose.theme.VideoTheme
 import io.getstream.video.android.core.Call
 import io.getstream.video.android.core.mapper.ReactionMapper
-import io.getstream.video.android.mock.StreamMockUtils
-import io.getstream.video.android.mock.mockCall
+import io.getstream.video.android.mock.StreamPreviewDataUtils
+import io.getstream.video.android.mock.previewCall
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -177,7 +178,7 @@ private fun sendReaction(scope: CoroutineScope, call: Call, emoji: String, onDis
 @Preview
 @Composable
 private fun ReactionItemPreview() {
-  StreamMockUtils.initializeStreamVideo(LocalContext.current)
+  StreamPreviewDataUtils.initializeStreamVideo(LocalContext.current)
   VideoTheme {
     ReactionItem(
       reactionMapper = ReactionMapper.defaultReactionMapper(),
@@ -194,9 +195,9 @@ private fun ReactionItemPreview() {
 @Composable
 private fun ReactionMenuPreview() {
   VideoTheme {
-    StreamMockUtils.initializeStreamVideo(LocalContext.current)
+    StreamPreviewDataUtils.initializeStreamVideo(LocalContext.current)
     ReactionsMenu(
-      call = mockCall,
+      call = previewCall,
       reactionMapper = ReactionMapper.defaultReactionMapper(),
       onDismiss = { }
     )
