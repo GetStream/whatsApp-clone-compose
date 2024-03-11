@@ -41,7 +41,7 @@ retrofitResultAdapter = "1.0.9"
 retrofitKotlinxSerializationJson = "1.0.0"
 googleSecretPlugin = "2.0.1"
 spotless = "6.7.0"
-turbine = "1.0.0"
+turbine = "1.1.0"
 
 [libraries]
 stream-chat-client = { group = "io.getstream", name = "stream-chat-android-client", version.ref = "streamChatSDK" }
