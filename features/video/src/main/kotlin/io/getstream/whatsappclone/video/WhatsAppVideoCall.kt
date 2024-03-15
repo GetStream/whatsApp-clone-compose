@@ -16,6 +16,8 @@
 
 package io.getstream.whatsappclone.video
 
+import android.Manifest
+import android.os.Build
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
@@ -36,6 +38,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import io.getstream.video.android.compose.theme.VideoTheme
 import io.getstream.video.android.compose.ui.components.call.activecall.CallContent
 import io.getstream.video.android.compose.ui.components.call.controls.ControlActions
@@ -59,7 +63,7 @@ fun WhatsAppVideoCall(
 ) {
   val uiState by viewModel.videoUiSate.collectAsStateWithLifecycle()
 
-  LaunchedEffect(key1 = id) {
+  EnsureAudioPermission {
     viewModel.joinCall(type = "default", id = id.replace(":", ""))
   }
 
@@ -208,5 +212,32 @@ private fun WhatsAppVideoCallContentPreview() {
       call = previewCall,
       videoCall = true
     ) {}
+  }
+}
+
+@OptIn(ExperimentalPermissionsApi::class)
+@Composable
+fun EnsureAudioPermission(onPermissionsGranted: () -> Unit) {
+  // While the SDK will handle the microphone permission,
+  // its not a bad idea to do it prior to entering any call UIs
+  val permissionsState = rememberMultiplePermissionsState(
+    permissions = buildList {
+      // Access to microphone
+      add(Manifest.permission.RECORD_AUDIO)
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+        // Allow for foreground service for notification on API 26+
+        add(Manifest.permission.FOREGROUND_SERVICE)
+      }
+    }
+  )
+
+  LaunchedEffect(key1 = Unit) {
+    permissionsState.launchMultiplePermissionRequest()
+  }
+
+  LaunchedEffect(key1 = permissionsState.allPermissionsGranted) {
+    if (permissionsState.allPermissionsGranted) {
+      onPermissionsGranted()
+    }
   }
 }
