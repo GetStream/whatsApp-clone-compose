@@ -73,7 +73,7 @@ private object DefaultReactionsMenuData {
     ReactionItemData("Fireworks", ":fireworks:"),
     ReactionItemData("Wave", ":hello:"),
     ReactionItemData("Like", ":raise-hand:"),
-    ReactionItemData("Dislike", ":hate:"),
+    ReactionItemData("Dislike", ":dislike:"),
     ReactionItemData("Smile", ":smile:"),
     ReactionItemData("Heart", ":heart:")
   )
