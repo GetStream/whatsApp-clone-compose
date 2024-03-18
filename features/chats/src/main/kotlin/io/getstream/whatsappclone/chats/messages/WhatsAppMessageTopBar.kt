@@ -32,7 +32,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import com.skydoves.landscapist.animation.crossfade.CrossfadePlugin
 import com.skydoves.landscapist.components.rememberImageComponent
 import com.skydoves.landscapist.glide.GlideImage
@@ -43,9 +42,8 @@ import io.getstream.whatsappclone.uistate.WhatsAppMessageUiState
 
 @Composable
 fun WhatsAppMessageTopBar(
-  channelId: String,
-  whatsAppMessagesViewModel: WhatsAppMessagesViewModel = hiltViewModel(),
   messageUiState: WhatsAppMessageUiState,
+  navigateToVideoCall: (Boolean) -> Unit,
   onBackClick: () -> Unit
 ) {
   TopAppBar(
@@ -70,7 +68,7 @@ fun WhatsAppMessageTopBar(
         modifier = Modifier
           .size(26.dp)
           .clickable {
-            whatsAppMessagesViewModel.navigateToVideoCall(channelId = channelId, videoCall = true)
+            navigateToVideoCall(true)
           },
         imageVector = WhatsAppIcons.Video,
         tint = MaterialTheme.colorScheme.tertiary,
@@ -83,7 +81,7 @@ fun WhatsAppMessageTopBar(
         modifier = Modifier
           .size(26.dp)
           .clickable {
-            whatsAppMessagesViewModel.navigateToVideoCall(channelId = channelId, videoCall = false)
+            navigateToVideoCall(false)
           },
         imageVector = WhatsAppIcons.Call,
         tint = MaterialTheme.colorScheme.tertiary,
@@ -142,8 +140,8 @@ private fun WhatsAppMessageUserInfo(
 private fun WhatsAppTopBarPreview() {
   WhatsAppCloneComposeTheme {
     WhatsAppMessageTopBar(
-      channelId = "",
       messageUiState = WhatsAppMessageUiState.Loading,
+      navigateToVideoCall = {},
       onBackClick = {}
     )
   }
@@ -154,8 +152,8 @@ private fun WhatsAppTopBarPreview() {
 private fun WhatsAppTopBarDarkPreview() {
   WhatsAppCloneComposeTheme(darkTheme = true) {
     WhatsAppMessageTopBar(
-      channelId = "",
       messageUiState = WhatsAppMessageUiState.Loading,
+      navigateToVideoCall = {},
       onBackClick = {}
     )
   }

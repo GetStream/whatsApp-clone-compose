@@ -38,8 +38,10 @@ fun WhatsAppMessages(
   WhatsAppChatTheme {
     Column(Modifier.fillMaxSize()) {
       WhatsAppMessageTopBar(
-        channelId = channelId,
         messageUiState = messageUiState,
+        navigateToVideoCall = {
+          whatsAppMessagesViewModel.navigateToVideoCall(channelId, videoCall = it)
+        },
         onBackClick = { whatsAppMessagesViewModel.handleEvents(WhatsAppMessageEvent.NavigateUp) }
       )
 
