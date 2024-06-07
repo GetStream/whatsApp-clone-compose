@@ -17,17 +17,38 @@
 package io.getstream.whatsappclone.chats.channels
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import io.getstream.chat.android.client.ChatClient
 import io.getstream.whatsappclone.navigation.AppComposeNavigator
 import io.getstream.whatsappclone.navigation.WhatsAppScreens
 import javax.inject.Inject
+import kotlin.random.Random
+import kotlinx.coroutines.launch
 
 @HiltViewModel
 class WhatsChannelsViewModel @Inject constructor(
-  private val composeNavigator: AppComposeNavigator
+  private val composeNavigator: AppComposeNavigator,
+  private val chatClient: ChatClient
 ) : ViewModel() {
+
+  private val user = chatClient.clientState.user
 
   fun navigateToMessages(channelId: String) {
     composeNavigator.navigate(WhatsAppScreens.Messages.createRoute(channelId))
+  }
+
+  fun createChannel() {
+    viewModelScope.launch {
+      val me = user.value
+      if (me != null) {
+        chatClient.createChannel(
+          channelType = "messaging",
+          channelId = "channel${Random.nextInt(10000)}",
+          memberIds = listOf(me.id),
+          extraData = mapOf()
+        ).await()
+      }
+    }
   }
 }

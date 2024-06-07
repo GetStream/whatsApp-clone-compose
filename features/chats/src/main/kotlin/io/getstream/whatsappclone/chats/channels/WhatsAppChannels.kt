@@ -42,7 +42,7 @@ fun WhatsAppChannels(
     Box(modifier = Modifier.fillMaxSize()) {
       ChannelsScreen(
         isShowingHeader = false,
-        onItemClick = { channel ->
+        onChannelClick = { channel ->
           whatsChannelsViewModel.navigateToMessages(channel.cid)
         }
       )
@@ -54,7 +54,7 @@ fun WhatsAppChannels(
           .size(58.dp),
         containerColor = GREEN500,
         shape = CircleShape,
-        onClick = { }
+        onClick = { whatsChannelsViewModel.createChannel() }
       ) {
         Icon(
           imageVector = WhatsAppIcons.Message,
