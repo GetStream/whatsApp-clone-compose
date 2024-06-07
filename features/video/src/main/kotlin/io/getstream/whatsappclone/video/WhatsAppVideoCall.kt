@@ -21,8 +21,8 @@ import android.os.Build
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.Text
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -32,7 +32,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -44,8 +46,8 @@ import io.getstream.video.android.compose.theme.VideoTheme
 import io.getstream.video.android.compose.ui.components.call.activecall.CallContent
 import io.getstream.video.android.compose.ui.components.call.controls.ControlActions
 import io.getstream.video.android.compose.ui.components.call.controls.actions.FlipCameraAction
+import io.getstream.video.android.compose.ui.components.call.controls.actions.GenericAction
 import io.getstream.video.android.compose.ui.components.call.controls.actions.LeaveCallAction
-import io.getstream.video.android.compose.ui.components.call.controls.actions.ReactionAction
 import io.getstream.video.android.compose.ui.components.call.controls.actions.ToggleCameraAction
 import io.getstream.video.android.compose.ui.components.call.controls.actions.ToggleMicrophoneAction
 import io.getstream.video.android.core.Call
@@ -110,9 +112,12 @@ private fun WhatsAppVideoCallContent(
               call = call,
               actions = listOf(
                 {
-                  ReactionAction(
+                  GenericAction(
+                    icon = ImageVector.vectorResource(
+                      id = io.getstream.video.android.ui.common.R.drawable.stream_video_ic_reaction
+                    ),
                     modifier = Modifier.size(52.dp),
-                    onCallAction = { isShowingReactionDialog = true }
+                    onAction = { isShowingReactionDialog = true }
                   )
                 },
                 {
@@ -148,9 +153,12 @@ private fun WhatsAppVideoCallContent(
               call = call,
               actions = listOf(
                 {
-                  ReactionAction(
+                  GenericAction(
+                    icon = ImageVector.vectorResource(
+                      id = io.getstream.video.android.ui.common.R.drawable.stream_video_ic_reaction
+                    ),
                     modifier = Modifier.size(52.dp),
-                    onCallAction = { isShowingReactionDialog = true }
+                    onAction = { isShowingReactionDialog = true }
                   )
                 },
                 {

@@ -96,7 +96,7 @@ internal fun ReactionsMenu(
   val scope = rememberCoroutineScope()
   val modifier = Modifier
     .background(
-      color = VideoTheme.colors.barsBackground,
+      color = VideoTheme.colors.basePrimary,
       shape = RoundedCornerShape(2.dp)
     )
     .wrapContentWidth()
@@ -107,14 +107,14 @@ internal fun ReactionsMenu(
   Dialog(onDismiss) {
     Card(
       modifier = modifier.wrapContentWidth(),
-      backgroundColor = VideoTheme.colors.barsBackground
+      backgroundColor = VideoTheme.colors.basePrimary
     ) {
       Column(Modifier.padding(16.dp)) {
         Row(horizontalArrangement = Arrangement.Center) {
           ReactionItem(
             modifier = Modifier
               .background(
-                color = VideoTheme.colors.appBackground,
+                color = VideoTheme.colors.basePrimary,
                 shape = RoundedCornerShape(2.dp)
               )
               .fillMaxWidth(),
@@ -163,7 +163,7 @@ private fun ReactionItem(
       textAlign = TextAlign.Center,
       modifier = textModifier.padding(12.dp),
       text = "$mappedEmoji ${reaction.displayText}",
-      color = VideoTheme.colors.textHighEmphasis
+      color = VideoTheme.colors.baseSenary
     )
   }
 }

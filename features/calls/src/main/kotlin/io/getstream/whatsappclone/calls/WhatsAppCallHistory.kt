@@ -32,6 +32,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.skydoves.landscapist.glide.GlideImage
 import io.getstream.whatsappclone.designsystem.icon.WhatsAppIcons
@@ -57,7 +58,9 @@ fun WhatsAppCallHistory(
           .size(56.dp)
           .clip(CircleShape),
         imageModel = { whatsAppUser.picture },
-        previewPlaceholder = io.getstream.whatsappclone.designsystem.R.drawable.placeholder
+        previewPlaceholder = painterResource(
+          id = io.getstream.whatsappclone.designsystem.R.drawable.placeholder
+        )
       )
 
       Column(modifier = Modifier.padding(start = 12.dp)) {

@@ -30,6 +30,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.skydoves.landscapist.animation.crossfade.CrossfadePlugin
@@ -121,7 +122,9 @@ private fun WhatsAppMessageUserInfo(
           component = rememberImageComponent {
             +CrossfadePlugin()
           },
-          previewPlaceholder = io.getstream.whatsappclone.designsystem.R.drawable.placeholder
+          previewPlaceholder = painterResource(
+            id = io.getstream.whatsappclone.designsystem.R.drawable.placeholder
+          )
         )
 
         Text(
