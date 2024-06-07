@@ -1,16 +1,14 @@
 [versions]
-streamChatSDK = "6.1.1"
+streamChatSDK = "6.3.2"
 streamVideoSDK = "1.0.1"
 streamLog = "1.1.4"
 sealedx = "1.0.1"
 landscapist = "2.3.3"
 accompanist = "0.34.0"
-androidDesugarJdkLibs = "1.1.5"
 androidGradlePlugin = "8.4.1"
 androidxActivity = "1.9.0"
 androidxAppCompat = "1.6.1"
 androidxCompose = "1.6.7"
-androidxComposeCompiler = "1.5.9"
 androidxComposeMaterial3 = "1.3.0-alpha04"
 androidxComposeConstraintLayout = "1.0.1"
 androidxComposeNavigation = "2.5.3"
@@ -59,7 +57,6 @@ landscapist-placeholder = { group = "com.github.skydoves", name = "landscapist-p
 accompanist-pager = { group = "com.google.accompanist", name = "accompanist-pager", version.ref = "accompanist" }
 accompanist-indicator = { group = "com.google.accompanist", name = "accompanist-pager-indicators", version.ref = "accompanist" }
 accompanist-permissions = { group = "com.google.accompanist", name = "accompanist-permissions", version.ref = "accompanist" }
-android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivity" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidxAppCompat" }
 androidx-benchmark-macro = { group = "androidx.benchmark", name = "benchmark-macro-junit4", version.ref = "androidxMacroBenchmark" }

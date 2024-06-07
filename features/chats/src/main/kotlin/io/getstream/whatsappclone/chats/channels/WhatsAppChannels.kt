@@ -42,7 +42,7 @@ fun WhatsAppChannels(
     Box(modifier = Modifier.fillMaxSize()) {
       ChannelsScreen(
         isShowingHeader = false,
-        onItemClick = { channel ->
+        onChannelClick = { channel ->
           whatsChannelsViewModel.navigateToMessages(channel.cid)
         }
       )
