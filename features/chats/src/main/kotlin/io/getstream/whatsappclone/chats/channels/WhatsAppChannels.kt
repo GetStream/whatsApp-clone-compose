@@ -54,7 +54,7 @@ fun WhatsAppChannels(
           .size(58.dp),
         containerColor = GREEN500,
         shape = CircleShape,
-        onClick = { }
+        onClick = { whatsChannelsViewModel.createChannel() }
       ) {
         Icon(
           imageVector = WhatsAppIcons.Message,
