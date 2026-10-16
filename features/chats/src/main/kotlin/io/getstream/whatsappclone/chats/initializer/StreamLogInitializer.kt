@@ -18,10 +18,10 @@ package io.getstream.whatsappclone.chats.initializer
 
 import android.content.Context
 import androidx.startup.Initializer
+import io.getstream.log.AndroidStreamLogger
 import io.getstream.log.Priority
-import io.getstream.log.android.AndroidStreamLogger
-import io.getstream.log.android.BuildConfig
 import io.getstream.log.streamLog
+import io.getstream.whatsappclone.chats.BuildConfig
 
 class StreamLogInitializer : Initializer<Unit> {
 

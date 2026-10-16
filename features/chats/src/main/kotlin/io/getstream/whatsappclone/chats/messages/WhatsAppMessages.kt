@@ -24,8 +24,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import io.getstream.chat.android.compose.ui.messages.MessagesScreen
-import io.getstream.chat.android.compose.viewmodel.messages.MessagesViewModelFactory
+import io.getstream.chat.android.compose.ui.messages.ChannelScreen
+import io.getstream.chat.android.compose.viewmodel.messages.ChannelViewModelFactory
+import io.getstream.chat.android.compose.viewmodel.messages.MessageListOptions
 import io.getstream.whatsappclone.chats.theme.WhatsAppChatTheme
 
 @Composable
@@ -45,14 +46,14 @@ fun WhatsAppMessages(
         onBackClick = { whatsAppMessagesViewModel.handleEvents(WhatsAppMessageEvent.NavigateUp) }
       )
 
-      MessagesScreen(
-        viewModelFactory = MessagesViewModelFactory(
+      ChannelScreen(
+        viewModelFactory = ChannelViewModelFactory(
           context = LocalContext.current,
           channelId = channelId,
-          messageLimit = 30
+          messageListOptions = MessageListOptions(messageLimit = 30)
         ),
-        showHeader = false,
-        onBackPressed = { whatsAppMessagesViewModel.handleEvents(WhatsAppMessageEvent.NavigateUp) }
+        onBackPressed = { whatsAppMessagesViewModel.handleEvents(WhatsAppMessageEvent.NavigateUp) },
+        topBarContent = {}
       )
     }
   }
