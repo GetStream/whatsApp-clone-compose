@@ -19,8 +19,8 @@ package io.getstream.whatsappclone.chats.theme
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
 import io.getstream.chat.android.compose.ui.theme.ChatTheme
-import io.getstream.chat.android.compose.ui.theme.StreamColors
-import io.getstream.whatsappclone.chats.reactions.WhatsAppCloneReactionFactory
+import io.getstream.chat.android.compose.ui.theme.StreamDesign
+import io.getstream.whatsappclone.chats.reactions.whatsAppCloneReactionResolver
 import io.getstream.whatsappclone.designsystem.theme.DARK_GREEN300
 import io.getstream.whatsappclone.designsystem.theme.GREEN200
 import io.getstream.whatsappclone.designsystem.theme.GREEN450
@@ -31,22 +31,26 @@ fun WhatsAppChatTheme(
   darkTheme: Boolean = isSystemInDarkTheme(),
   content: @Composable () -> Unit
 ) {
+  // Own message bubbles take their background from the brand scale's s100 step.
   val streamColors = if (darkTheme) {
-    StreamColors.defaultDarkColors().copy(
-      appBackground = DARK_GREEN300,
-      primaryAccent = GREEN450,
-      ownMessagesBackground = GREEN600
+    StreamDesign.Colors.defaultDark(
+      brand = StreamDesign.ColorScale.defaultDark().copy(s100 = GREEN600)
+    ).copy(
+      backgroundCoreApp = DARK_GREEN300,
+      accentPrimary = GREEN450
     )
   } else {
-    StreamColors.defaultColors().copy(
-      primaryAccent = GREEN450,
-      ownMessagesBackground = GREEN200
+    StreamDesign.Colors.default(
+      brand = StreamDesign.ColorScale.defaultLight().copy(s100 = GREEN200)
+    ).copy(
+      accentPrimary = GREEN450
     )
   }
 
   ChatTheme(
+    isInDarkMode = darkTheme,
     colors = streamColors,
-    reactionIconFactory = WhatsAppCloneReactionFactory(),
+    reactionResolver = whatsAppCloneReactionResolver(),
     content = content
   )
 }
